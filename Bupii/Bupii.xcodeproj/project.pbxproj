@@ -20,6 +20,7 @@
 		852AE30D2DBA8C6400E8E238 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE30C2DBA8C6400E8E238 /* AlertView.swift */; };
 		852AE30F2DBA9BA900E8E238 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 852AE30E2DBA91BF00E8E238 /* Inter-Bold.otf */; };
 		852AE3102DBA9BAE00E8E238 /* InterVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 851713692DB81F1A00022829 /* InterVariable.ttf */; };
+		852AE3132DBAD57B00E8E238 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3122DBAD57B00E8E238 /* TabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		851713742DB986F300022829 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		852AE30C2DBA8C6400E8E238 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		852AE30E2DBA91BF00E8E238 /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
+		852AE3122DBAD57B00E8E238 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		851713612DB81D1D00022829 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				852AE3112DBAD56500E8E238 /* TabBar */,
 				852AE30B2DBA8C5500E8E238 /* Alert */,
 				851713672DB81EB800022829 /* Fonts */,
 				851713642DB81D3900022829 /* Buttons */,
@@ -209,6 +212,14 @@
 				852AE30C2DBA8C6400E8E238 /* AlertView.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		852AE3112DBAD56500E8E238 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				852AE3122DBAD57B00E8E238 /* TabBarView.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +356,7 @@
 			files = (
 				851713752DB986F300022829 /* SecondaryButton.swift in Sources */,
 				851713382DB8189300022829 /* FirstView.swift in Sources */,
+				852AE3132DBAD57B00E8E238 /* TabBarView.swift in Sources */,
 				852AE30D2DBA8C6400E8E238 /* AlertView.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
