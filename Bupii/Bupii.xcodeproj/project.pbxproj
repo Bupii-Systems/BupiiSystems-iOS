@@ -23,6 +23,8 @@
 		852AE3132DBAD57B00E8E238 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3122DBAD57B00E8E238 /* TabBarView.swift */; };
 		852AE3152DBB93B900E8E238 /* GenericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3142DBB93B900E8E238 /* GenericTextField.swift */; };
 		852AE3172DBB9CFC00E8E238 /* GenericDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3162DBB9CFC00E8E238 /* GenericDropDown.swift */; };
+		852AE31A2DBBCD6300E8E238 /* CellHomeStaffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3192DBBCD6300E8E238 /* CellHomeStaffView.swift */; };
+		852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		852AE3122DBAD57B00E8E238 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		852AE3142DBB93B900E8E238 /* GenericTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextField.swift; sourceTree = "<group>"; };
 		852AE3162DBB9CFC00E8E238 /* GenericDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDropDown.swift; sourceTree = "<group>"; };
+		852AE3192DBBCD6300E8E238 /* CellHomeStaffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHomeStaffView.swift; sourceTree = "<group>"; };
+		852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 		851713342DB8189300022829 /* Bupii */ = {
 			isa = PBXGroup;
 			children = (
+				852AE31B2DBBD17C00E8E238 /* GlobalFunctions */,
 				851713612DB81D1D00022829 /* Elements */,
 				8517135F2DB81B3A00022829 /* WhiteLabel */,
 				851713352DB8189300022829 /* BupiiApp.swift */,
@@ -167,6 +172,7 @@
 		851713612DB81D1D00022829 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				852AE3182DBBCD3F00E8E238 /* StaffElements */,
 				852AE3112DBAD56500E8E238 /* TabBar */,
 				852AE30B2DBA8C5500E8E238 /* Alert */,
 				851713672DB81EB800022829 /* Fonts */,
@@ -226,6 +232,22 @@
 				852AE3122DBAD57B00E8E238 /* TabBarView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		852AE3182DBBCD3F00E8E238 /* StaffElements */ = {
+			isa = PBXGroup;
+			children = (
+				852AE3192DBBCD6300E8E238 /* CellHomeStaffView.swift */,
+			);
+			path = StaffElements;
+			sourceTree = "<group>";
+		};
+		852AE31B2DBBD17C00E8E238 /* GlobalFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */,
+			);
+			path = GlobalFunctions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,10 +386,12 @@
 				852AE3172DBB9CFC00E8E238 /* GenericDropDown.swift in Sources */,
 				851713382DB8189300022829 /* FirstView.swift in Sources */,
 				852AE3132DBAD57B00E8E238 /* TabBarView.swift in Sources */,
+				852AE31A2DBBCD6300E8E238 /* CellHomeStaffView.swift in Sources */,
 				852AE30D2DBA8C6400E8E238 /* AlertView.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
 				851713732DB986D600022829 /* MainButton.swift in Sources */,
+				852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */,
 				852AE3152DBB93B900E8E238 /* GenericTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
