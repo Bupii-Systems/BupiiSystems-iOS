@@ -39,12 +39,13 @@ struct GenericDropDown: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
 
-                        TextField("", text: $text)
+                        Text(text)
                             .padding(10)
                             .background(Color.clear)
                             .cornerRadius(8)
                             .font(.custom("Inter-Regular", size: 16))
                             .foregroundColor(Color(AppColor.text))
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
 
                     Image("ArrowDown")
