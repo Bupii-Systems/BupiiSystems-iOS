@@ -27,6 +27,10 @@
 		852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */; };
 		852AE31F2DBCCB2400E8E238 /* CellHomeEndUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE31E2DBCCB2300E8E238 /* CellHomeEndUserView.swift */; };
 		852AE3222DBCD03500E8E238 /* TrucanteString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3212DBCD03500E8E238 /* TrucanteString.swift */; };
+		852AE3272DBCD53200E8E238 /* ColorEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3262DBCD53200E8E238 /* ColorEditor.swift */; };
+		852AE3292DBCD69C00E8E238 /* BackgroundLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3282DBCD69C00E8E238 /* BackgroundLoginView.swift */; };
+		852AE32B2DBCD6C800E8E238 /* BackgroundHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE32A2DBCD6C800E8E238 /* BackgroundHomeView.swift */; };
+		852AE32D2DBCD70300E8E238 /* BackgroundSecondaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE32C2DBCD70300E8E238 /* BackgroundSecondaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,10 @@
 		852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		852AE31E2DBCCB2300E8E238 /* CellHomeEndUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHomeEndUserView.swift; sourceTree = "<group>"; };
 		852AE3212DBCD03500E8E238 /* TrucanteString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrucanteString.swift; sourceTree = "<group>"; };
+		852AE3262DBCD53200E8E238 /* ColorEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorEditor.swift; sourceTree = "<group>"; };
+		852AE3282DBCD69C00E8E238 /* BackgroundLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLoginView.swift; sourceTree = "<group>"; };
+		852AE32A2DBCD6C800E8E238 /* BackgroundHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundHomeView.swift; sourceTree = "<group>"; };
+		852AE32C2DBCD70300E8E238 /* BackgroundSecondaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSecondaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +129,7 @@
 		851713342DB8189300022829 /* Bupii */ = {
 			isa = PBXGroup;
 			children = (
+				852AE3232DBCD2DF00E8E238 /* BackgroundView */,
 				852AE31B2DBBD17C00E8E238 /* GlobalFunctions */,
 				851713612DB81D1D00022829 /* Elements */,
 				8517135F2DB81B3A00022829 /* WhiteLabel */,
@@ -252,6 +261,7 @@
 			children = (
 				852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */,
 				852AE3212DBCD03500E8E238 /* TrucanteString.swift */,
+				852AE3262DBCD53200E8E238 /* ColorEditor.swift */,
 			);
 			path = GlobalFunctions;
 			sourceTree = "<group>";
@@ -262,6 +272,16 @@
 				852AE31E2DBCCB2300E8E238 /* CellHomeEndUserView.swift */,
 			);
 			path = EndUserElements;
+			sourceTree = "<group>";
+		};
+		852AE3232DBCD2DF00E8E238 /* BackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				852AE3282DBCD69C00E8E238 /* BackgroundLoginView.swift */,
+				852AE32A2DBCD6C800E8E238 /* BackgroundHomeView.swift */,
+				852AE32C2DBCD70300E8E238 /* BackgroundSecondaryView.swift */,
+			);
+			path = BackgroundView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,15 +420,19 @@
 				852AE3222DBCD03500E8E238 /* TrucanteString.swift in Sources */,
 				852AE3172DBB9CFC00E8E238 /* GenericDropDown.swift in Sources */,
 				851713382DB8189300022829 /* FirstView.swift in Sources */,
+				852AE32D2DBCD70300E8E238 /* BackgroundSecondaryView.swift in Sources */,
 				852AE3132DBAD57B00E8E238 /* TabBarView.swift in Sources */,
 				852AE31A2DBBCD6300E8E238 /* CellHomeStaffView.swift in Sources */,
 				852AE30D2DBA8C6400E8E238 /* AlertView.swift in Sources */,
+				852AE32B2DBCD6C800E8E238 /* BackgroundHomeView.swift in Sources */,
 				852AE31F2DBCCB2400E8E238 /* CellHomeEndUserView.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
+				852AE3292DBCD69C00E8E238 /* BackgroundLoginView.swift in Sources */,
 				851713732DB986D600022829 /* MainButton.swift in Sources */,
 				852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */,
 				852AE3152DBB93B900E8E238 /* GenericTextField.swift in Sources */,
+				852AE3272DBCD53200E8E238 /* ColorEditor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
