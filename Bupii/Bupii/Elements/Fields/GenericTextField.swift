@@ -12,6 +12,7 @@ struct GenericTextField: View {
     @State private var isSecure: Bool = true
     var leftImageName: String
     var isPasswordField: Bool
+    var placeholder: String
 
     var body: some View {
         ZStack {
@@ -28,23 +29,38 @@ struct GenericTextField: View {
                     .frame(width: 24, height: 24)
                     .padding(.leading, 16)
 
-                if isPasswordField {
-                    if isSecure {
-                        SecureField("Enter text", text: $text)
-                            .padding(10)
-                            .background(Color.clear)
-                            .cornerRadius(8)
+                ZStack(alignment: .leading) {
+                    if text.isEmpty {
+                        Text(placeholder)
+                            .foregroundColor(Color(AppColor.text))
                             .font(.custom("Inter-Regular", size: 16))
-                            .foregroundStyle(Color(AppColor.text))
-                    } else {
-                        TextField("Enter text", text: $text)
-                            .padding(10)
-                            .background(Color.clear)
-                            .cornerRadius(8)
-                            .font(.custom("Inter-Regular", size: 16))
-                            .foregroundStyle(Color(AppColor.text))
+                            .padding(.leading, 10)
                     }
 
+                    if isPasswordField {
+                        if isSecure {
+                            SecureField("", text: $text)
+                                .padding(10)
+                                .background(Color.clear)
+                                .font(.custom("Inter-Regular", size: 16))
+                                .foregroundColor(Color(AppColor.text))
+                        } else {
+                            TextField("", text: $text)
+                                .padding(10)
+                                .background(Color.clear)
+                                .font(.custom("Inter-Regular", size: 16))
+                                .foregroundColor(Color(AppColor.text))
+                        }
+                    } else {
+                        TextField("", text: $text)
+                            .padding(10)
+                            .background(Color.clear)
+                            .font(.custom("Inter-Regular", size: 16))
+                            .foregroundColor(Color(AppColor.text))
+                    }
+                }
+
+                if isPasswordField {
                     Button(action: {
                         withAnimation {
                             isSecure.toggle()
@@ -56,13 +72,6 @@ struct GenericTextField: View {
                             .frame(width: 24, height: 24)
                             .padding(.trailing, 16)
                     }
-                } else {
-                    TextField("Enter text", text: $text)
-                        .padding(10)
-                        .background(Color.clear)
-                        .cornerRadius(8)
-                        .font(.custom("Inter-Regular", size: 16))
-                        .foregroundStyle(Color(AppColor.text))
                 }
             }
             .zIndex(1)
@@ -73,6 +82,10 @@ struct GenericTextField: View {
 }
 
 #Preview {
-    GenericTextField(leftImageName: "LockColor", isPasswordField: true)
-        .preferredColorScheme(.dark)
+    GenericTextField(
+        leftImageName: "LockColor",
+        isPasswordField: true,
+        placeholder: "Digite sua senha"
+    )
+    .preferredColorScheme(.dark)
 }

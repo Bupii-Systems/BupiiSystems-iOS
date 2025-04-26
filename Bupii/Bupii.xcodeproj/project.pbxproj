@@ -31,6 +31,7 @@
 		852AE3292DBCD69C00E8E238 /* BackgroundLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3282DBCD69C00E8E238 /* BackgroundLoginView.swift */; };
 		852AE32B2DBCD6C800E8E238 /* BackgroundHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE32A2DBCD6C800E8E238 /* BackgroundHomeView.swift */; };
 		852AE32D2DBCD70300E8E238 /* BackgroundSecondaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE32C2DBCD70300E8E238 /* BackgroundSecondaryView.swift */; };
+		852AE3312DBCE36E00E8E238 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3302DBCE36E00E8E238 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		852AE3282DBCD69C00E8E238 /* BackgroundLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLoginView.swift; sourceTree = "<group>"; };
 		852AE32A2DBCD6C800E8E238 /* BackgroundHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundHomeView.swift; sourceTree = "<group>"; };
 		852AE32C2DBCD70300E8E238 /* BackgroundSecondaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSecondaryView.swift; sourceTree = "<group>"; };
+		852AE3302DBCE36E00E8E238 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		851713342DB8189300022829 /* Bupii */ = {
 			isa = PBXGroup;
 			children = (
+				852AE32E2DBCE33B00E8E238 /* AppArchives */,
 				852AE3232DBCD2DF00E8E238 /* BackgroundView */,
 				852AE31B2DBBD17C00E8E238 /* GlobalFunctions */,
 				851713612DB81D1D00022829 /* Elements */,
@@ -284,6 +287,22 @@
 			path = BackgroundView;
 			sourceTree = "<group>";
 		};
+		852AE32E2DBCE33B00E8E238 /* AppArchives */ = {
+			isa = PBXGroup;
+			children = (
+				852AE32F2DBCE35900E8E238 /* Login */,
+			);
+			path = AppArchives;
+			sourceTree = "<group>";
+		};
+		852AE32F2DBCE35900E8E238 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				852AE3302DBCE36E00E8E238 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,6 +447,7 @@
 				852AE31F2DBCCB2400E8E238 /* CellHomeEndUserView.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
+				852AE3312DBCE36E00E8E238 /* LoginView.swift in Sources */,
 				852AE3292DBCD69C00E8E238 /* BackgroundLoginView.swift in Sources */,
 				851713732DB986D600022829 /* MainButton.swift in Sources */,
 				852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */,
