@@ -30,12 +30,15 @@ struct CellHomeStaffView: View {
                         .padding(.top, 280)
                 }
             }
-
+            
+            //ex: how to use color with a svg image
             Image("LocationColor")
+                .renderingMode(.template)
                 .resizable()
                 .frame(width: 29, height: 29)
                 .padding(.leading, 40)
                 .padding(.bottom, 30)
+                .foregroundStyle(Color(AppColor.brand))
 
             Text(address)
                 .font(.custom("Inter-Regular", size: 16))
