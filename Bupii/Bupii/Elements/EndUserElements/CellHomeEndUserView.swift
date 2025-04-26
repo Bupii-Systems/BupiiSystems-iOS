@@ -1,16 +1,17 @@
 //
-//  CellHomeStaffView.swift
+//  CellHomeEndUserView.swift
 //  Bupii
 //
-//  Created by Pedro Ribeiro on 25/04/2025.
+//  Created by Pedro Ribeiro on 26/04/2025.
 //
 
 import SwiftUI
 
-struct CellHomeStaffView: View {
+struct CellHomeEndUserView: View {
+    
     let imageName: String
     let address: String
-
+    
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             VStack {
@@ -18,15 +19,16 @@ struct CellHomeStaffView: View {
                     Image(imageName)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 358, height: 252)
+                        .frame(height: 394)
                         .cornerRadius(16, corners: [.topLeft, .topRight])
                         .padding(.horizontal, 16)
-
+                    
                     Rectangle()
-                        .frame(width: 358, height: 78)
+                        .frame(height: 149)
+                        .padding(.horizontal, 0)
                         .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
                         .padding(.horizontal, 16)
-                        .padding(.top, 280)
+                        .padding(.top, 380)
                 }
             }
             
@@ -36,22 +38,30 @@ struct CellHomeStaffView: View {
                 .resizable()
                 .frame(width: 29, height: 29)
                 .padding(.leading, 40)
-                .padding(.bottom, 30)
+                .padding(.bottom, 96)
                 .foregroundStyle(Color(AppColor.brand))
-
-            Text(truncate(address, limit: 45))
+            
+            Text(truncate(address, limit: 52))
                 .font(.custom("Inter-Regular", size: 16))
                 .foregroundStyle(Color(AppColor.text))
-                .padding(.leading, 100)
-                .padding(.trailing, 100)
-                .padding(.bottom, address.count > 25 ? 24 : 40)
+                .padding(.leading, 74)
+                .padding(.trailing, 74)
+                .padding(.bottom, 92)
+                .padding(.top, 400)
+            
+            MainButton(buttonText: "Agendar atendimento", action: {
+                print("tapped")
+            })
+            .padding(.bottom, 28)
+            .padding(.horizontal, 18)
+            
         }
     }
 }
 
 #Preview {
-    CellHomeStaffView(
-        imageName: "Barbershop1Default",
+    CellHomeEndUserView(
+        imageName: "Barbershop1DefaultEU",
         address: "Rua João de Barro, 421 Lapa | São Paulo"
     )
     .preferredColorScheme(.dark)

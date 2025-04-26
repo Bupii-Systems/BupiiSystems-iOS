@@ -25,6 +25,8 @@
 		852AE3172DBB9CFC00E8E238 /* GenericDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3162DBB9CFC00E8E238 /* GenericDropDown.swift */; };
 		852AE31A2DBBCD6300E8E238 /* CellHomeStaffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3192DBBCD6300E8E238 /* CellHomeStaffView.swift */; };
 		852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */; };
+		852AE31F2DBCCB2400E8E238 /* CellHomeEndUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE31E2DBCCB2300E8E238 /* CellHomeEndUserView.swift */; };
+		852AE3222DBCD03500E8E238 /* TrucanteString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3212DBCD03500E8E238 /* TrucanteString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		852AE3162DBB9CFC00E8E238 /* GenericDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDropDown.swift; sourceTree = "<group>"; };
 		852AE3192DBBCD6300E8E238 /* CellHomeStaffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHomeStaffView.swift; sourceTree = "<group>"; };
 		852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		852AE31E2DBCCB2300E8E238 /* CellHomeEndUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHomeEndUserView.swift; sourceTree = "<group>"; };
+		852AE3212DBCD03500E8E238 /* TrucanteString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrucanteString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 		851713612DB81D1D00022829 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				852AE3202DBCCCB000E8E238 /* EndUserElements */,
 				852AE3182DBBCD3F00E8E238 /* StaffElements */,
 				852AE3112DBAD56500E8E238 /* TabBar */,
 				852AE30B2DBA8C5500E8E238 /* Alert */,
@@ -246,8 +251,17 @@
 			isa = PBXGroup;
 			children = (
 				852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */,
+				852AE3212DBCD03500E8E238 /* TrucanteString.swift */,
 			);
 			path = GlobalFunctions;
+			sourceTree = "<group>";
+		};
+		852AE3202DBCCCB000E8E238 /* EndUserElements */ = {
+			isa = PBXGroup;
+			children = (
+				852AE31E2DBCCB2300E8E238 /* CellHomeEndUserView.swift */,
+			);
+			path = EndUserElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,11 +397,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				851713752DB986F300022829 /* SecondaryButton.swift in Sources */,
+				852AE3222DBCD03500E8E238 /* TrucanteString.swift in Sources */,
 				852AE3172DBB9CFC00E8E238 /* GenericDropDown.swift in Sources */,
 				851713382DB8189300022829 /* FirstView.swift in Sources */,
 				852AE3132DBAD57B00E8E238 /* TabBarView.swift in Sources */,
 				852AE31A2DBBCD6300E8E238 /* CellHomeStaffView.swift in Sources */,
 				852AE30D2DBA8C6400E8E238 /* AlertView.swift in Sources */,
+				852AE31F2DBCCB2400E8E238 /* CellHomeEndUserView.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
 				851713732DB986D600022829 /* MainButton.swift in Sources */,
