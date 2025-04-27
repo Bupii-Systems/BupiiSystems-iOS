@@ -32,6 +32,8 @@
 		852AE32B2DBCD6C800E8E238 /* BackgroundHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE32A2DBCD6C800E8E238 /* BackgroundHomeView.swift */; };
 		852AE32D2DBCD70300E8E238 /* BackgroundSecondaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE32C2DBCD70300E8E238 /* BackgroundSecondaryView.swift */; };
 		852AE3312DBCE36E00E8E238 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3302DBCE36E00E8E238 /* LoginView.swift */; };
+		852AE3332DBEB13600E8E238 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3322DBEB13600E8E238 /* ForgotPasswordView.swift */; };
+		852AE3352DBEB17600E8E238 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3342DBEB17600E8E238 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		852AE32A2DBCD6C800E8E238 /* BackgroundHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundHomeView.swift; sourceTree = "<group>"; };
 		852AE32C2DBCD70300E8E238 /* BackgroundSecondaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSecondaryView.swift; sourceTree = "<group>"; };
 		852AE3302DBCE36E00E8E238 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		852AE3322DBEB13600E8E238 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		852AE3342DBEB17600E8E238 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				852AE3302DBCE36E00E8E238 /* LoginView.swift */,
+				852AE3342DBEB17600E8E238 /* SignUpView.swift */,
+				852AE3322DBEB13600E8E238 /* ForgotPasswordView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -445,11 +451,13 @@
 				852AE30D2DBA8C6400E8E238 /* AlertView.swift in Sources */,
 				852AE32B2DBCD6C800E8E238 /* BackgroundHomeView.swift in Sources */,
 				852AE31F2DBCCB2400E8E238 /* CellHomeEndUserView.swift in Sources */,
+				852AE3332DBEB13600E8E238 /* ForgotPasswordView.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
 				852AE3312DBCE36E00E8E238 /* LoginView.swift in Sources */,
 				852AE3292DBCD69C00E8E238 /* BackgroundLoginView.swift in Sources */,
 				851713732DB986D600022829 /* MainButton.swift in Sources */,
+				852AE3352DBEB17600E8E238 /* SignUpView.swift in Sources */,
 				852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */,
 				852AE3152DBB93B900E8E238 /* GenericTextField.swift in Sources */,
 				852AE3272DBCD53200E8E238 /* ColorEditor.swift in Sources */,
