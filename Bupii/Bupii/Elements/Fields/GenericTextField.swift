@@ -24,10 +24,11 @@ struct GenericTextField: View {
 
             HStack {
                 Image(leftImageName)
-                    .resizable()
+                    .renderingMode(.template)
                     .scaledToFit()
                     .frame(width: 24, height: 24)
                     .padding(.leading, 16)
+                    .foregroundStyle(AppColor.brand)
 
                 ZStack(alignment: .leading) {
                     if text.isEmpty {

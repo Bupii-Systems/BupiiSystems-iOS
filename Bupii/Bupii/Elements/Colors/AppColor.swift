@@ -12,4 +12,5 @@ enum AppColor {
     static let support = Color("SupportColor")
     static let text = Color("TextColor")
     static let lightGray = Color("LightGray")
+    static let grayBackground = Color("GrayBackground")
 }

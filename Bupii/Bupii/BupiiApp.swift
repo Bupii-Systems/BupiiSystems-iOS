@@ -11,7 +11,7 @@ import SwiftUI
 struct BupiiApp: App {
     var body: some Scene {
         WindowGroup {
-            AlertView()
+            ContentView()
         }
     }
 }

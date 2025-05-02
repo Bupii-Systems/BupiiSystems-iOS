@@ -34,6 +34,9 @@
 		852AE3312DBCE36E00E8E238 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3302DBCE36E00E8E238 /* LoginView.swift */; };
 		852AE3332DBEB13600E8E238 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3322DBEB13600E8E238 /* ForgotPasswordView.swift */; };
 		852AE3352DBEB17600E8E238 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3342DBEB17600E8E238 /* SignUpView.swift */; };
+		852AE3382DBEB7FB00E8E238 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3372DBEB7FB00E8E238 /* HomeView.swift */; };
+		852AE33B2DC17AD700E8E238 /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE33A2DC17AD700E8E238 /* BookingView.swift */; };
+		852AE35D2DC4E39B00E8E238 /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE35C2DC4E39B00E8E238 /* BookingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		852AE3302DBCE36E00E8E238 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		852AE3322DBEB13600E8E238 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		852AE3342DBEB17600E8E238 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		852AE3372DBEB7FB00E8E238 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		852AE33A2DC17AD700E8E238 /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
+		852AE35C2DC4E39B00E8E238 /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +300,8 @@
 		852AE32E2DBCE33B00E8E238 /* AppArchives */ = {
 			isa = PBXGroup;
 			children = (
+				852AE3392DC17AB900E8E238 /* Booking */,
+				852AE3362DBEB7EE00E8E238 /* Home */,
 				852AE32F2DBCE35900E8E238 /* Login */,
 			);
 			path = AppArchives;
@@ -307,6 +315,23 @@
 				852AE3322DBEB13600E8E238 /* ForgotPasswordView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		852AE3362DBEB7EE00E8E238 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				852AE3372DBEB7FB00E8E238 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		852AE3392DC17AB900E8E238 /* Booking */ = {
+			isa = PBXGroup;
+			children = (
+				852AE33A2DC17AD700E8E238 /* BookingView.swift */,
+				852AE35C2DC4E39B00E8E238 /* BookingModel.swift */,
+			);
+			path = Booking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,10 +481,13 @@
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
 				852AE3312DBCE36E00E8E238 /* LoginView.swift in Sources */,
 				852AE3292DBCD69C00E8E238 /* BackgroundLoginView.swift in Sources */,
+				852AE35D2DC4E39B00E8E238 /* BookingModel.swift in Sources */,
+				852AE3382DBEB7FB00E8E238 /* HomeView.swift in Sources */,
 				851713732DB986D600022829 /* MainButton.swift in Sources */,
 				852AE3352DBEB17600E8E238 /* SignUpView.swift in Sources */,
 				852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */,
 				852AE3152DBB93B900E8E238 /* GenericTextField.swift in Sources */,
+				852AE33B2DC17AD700E8E238 /* BookingView.swift in Sources */,
 				852AE3272DBCD53200E8E238 /* ColorEditor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

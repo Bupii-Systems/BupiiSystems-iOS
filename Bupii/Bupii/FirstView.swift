@@ -7,27 +7,33 @@
 
 import SwiftUI
 
-struct FirstView: View {
+struct ContentView: View {
     var body: some View {
-        VStack {
-            Button(action: {
-                print("Botão pressionado!")
-            }) {
-                Text("Clique aqui")
+            TabView {
+                HomeView()
+                    .tabItem {
+                        EmptyView()
+                    }
                 
-                    .padding()
-                    .background(Color(AppColor.brand))
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-                    .font(.custom("Inter-Bold", size: 16))
-                    
+                Text("Another screen")
+                    .tabItem {
+                        EmptyView()
+                    }
             }
-            
+            .overlay(
+                TabBarView()
+                    .frame(maxWidth: .infinity, maxHeight: 70)
+                    .padding(.horizontal, 16)
+                    .offset(y: -32)
+                    .background(Color.clear)
+                    .background(Color(AppColor.grayBackground))
+                    .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 0, y: -2),
+                alignment: .bottom
+            )
+            .edgesIgnoringSafeArea(.bottom)
         }
-        
     }
-}
 
 #Preview {
-    FirstView()
+    ContentView()
 }

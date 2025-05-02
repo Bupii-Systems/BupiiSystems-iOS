@@ -22,17 +22,19 @@ struct CellHomeEndUserView: View {
                         .frame(height: 394)
                         .cornerRadius(16, corners: [.topLeft, .topRight])
                         .padding(.horizontal, 16)
+                        .shadow(color: Color.black.opacity(0.25), radius: 10, x: 5, y: 5)
                     
                     Rectangle()
+                        .foregroundStyle(.white)
                         .frame(height: 149)
                         .padding(.horizontal, 0)
                         .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
                         .padding(.horizontal, 16)
                         .padding(.top, 380)
+                        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                 }
             }
             
-            //ex: how to use color with a svg image
             Image("LocationColor")
                 .renderingMode(.template)
                 .resizable()
@@ -46,15 +48,13 @@ struct CellHomeEndUserView: View {
                 .foregroundStyle(Color(AppColor.text))
                 .padding(.leading, 74)
                 .padding(.trailing, 74)
-                .padding(.bottom, 92)
-                .padding(.top, 400)
+                .padding(.bottom, address.count < 25 ? 92 : 92)
             
             MainButton(buttonText: "Agendar atendimento", action: {
                 print("tapped")
             })
             .padding(.bottom, 28)
             .padding(.horizontal, 18)
-            
         }
     }
 }
@@ -66,8 +66,3 @@ struct CellHomeEndUserView: View {
     )
     .preferredColorScheme(.dark)
 }
-
-
-
-
-

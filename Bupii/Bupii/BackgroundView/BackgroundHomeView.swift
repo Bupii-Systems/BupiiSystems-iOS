@@ -17,6 +17,7 @@ struct BackgroundHomeView: View {
                 Rectangle()
                     .foregroundStyle(Color(AppColor.brand))
                     .frame(height: 378)
+
                 Spacer()
             }
             .ignoresSafeArea(edges: .top)

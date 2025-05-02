@@ -25,10 +25,12 @@ struct GenericDropDown: View {
 
                 HStack {
                     Image(leftImageName)
+                        .renderingMode(.template)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24)
                         .padding(.leading, 16)
+                        .foregroundStyle(AppColor.brand)
 
                     ZStack {
                         if text.isEmpty {
@@ -94,6 +96,6 @@ struct GenericDropDown: View {
 }
 
 #Preview {
-    GenericDropDown(leftImageName: "LockColor", options: ["Limited Access", "Full Access", "Restricted Access"], placeholder: "Escolha a opção")
+    GenericDropDown(leftImageName: "Calendar", options: ["Limited Access", "Full Access", "Restricted Access"], placeholder: "Escolha a opção")
         .preferredColorScheme(.dark)
 }
