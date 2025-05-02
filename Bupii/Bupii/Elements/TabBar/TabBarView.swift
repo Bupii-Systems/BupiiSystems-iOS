@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @State private var selectedButton: Int? = nil
-    
+    @Binding var selectedTab: Int
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -21,15 +21,15 @@ struct TabBarView: View {
             HStack {
                 Spacer()
                 Circle()
-                    .foregroundColor(self.selectedButton == 1 ? Color(AppColor.brand).opacity(0.2) : Color(AppColor.lightGray))
+                    .foregroundColor(selectedTab == 0 ? Color(AppColor.brand).opacity(0.2) : Color(AppColor.lightGray))
                     .frame(width: 50, height: 50)
                     .overlay(
                         Button(action: {
                             withAnimation {
-                                self.selectedButton = self.selectedButton == 1 ? nil : 1
+                                selectedTab = 0
                             }
                         }) {
-                            Image(self.selectedButton == 1 ? "StoreColor" : "Store")
+                            Image(selectedTab == 0 ? "StoreColor" : "Store")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 24, height: 24)
@@ -38,15 +38,15 @@ struct TabBarView: View {
                 Spacer()
 
                 Circle()
-                    .foregroundColor(self.selectedButton == 2 ? Color(AppColor.brand).opacity(0.2) : Color(AppColor.lightGray))
+                    .foregroundColor(selectedTab == 1 ? Color(AppColor.brand).opacity(0.2) : Color(AppColor.lightGray))
                     .frame(width: 50, height: 50)
                     .overlay(
                         Button(action: {
                             withAnimation {
-                                self.selectedButton = self.selectedButton == 2 ? nil : 2
+                                selectedTab = 1
                             }
                         }) {
-                            Image(self.selectedButton == 2 ? "ScissorColor" : "Scissor")
+                            Image(selectedTab == 1 ? "ScissorColor" : "Scissor")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 24, height: 24)
@@ -55,15 +55,15 @@ struct TabBarView: View {
                 Spacer()
 
                 Circle()
-                    .foregroundColor(self.selectedButton == 3 ? Color(AppColor.brand).opacity(0.2) : Color(AppColor.lightGray))
+                    .foregroundColor(selectedTab == 2 ? Color(AppColor.brand).opacity(0.2) : Color(AppColor.lightGray))
                     .frame(width: 50, height: 50)
                     .overlay(
                         Button(action: {
                             withAnimation {
-                                self.selectedButton = self.selectedButton == 3 ? nil : 3
+                                selectedTab = 2
                             }
                         }) {
-                            Image(self.selectedButton == 3 ? "CalendarColor" : "Calendar")
+                            Image(selectedTab == 2 ? "CalendarColor" : "Calendar")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 20, height: 20)
@@ -72,15 +72,15 @@ struct TabBarView: View {
                 Spacer()
 
                 Circle()
-                    .foregroundColor(self.selectedButton == 4 ? Color(AppColor.brand).opacity(0.2) : Color(AppColor.lightGray))
+                    .foregroundColor(selectedTab == 3 ? Color(AppColor.brand).opacity(0.2) : Color(AppColor.lightGray))
                     .frame(width: 50, height: 50)
                     .overlay(
                         Button(action: {
                             withAnimation {
-                                self.selectedButton = self.selectedButton == 4 ? nil : 4
+                                selectedTab = 3
                             }
                         }) {
-                            Image(self.selectedButton == 4 ? "PersonColor" : "Person") 
+                            Image(selectedTab == 3 ? "PersonColor" : "Person")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 24, height: 24)
@@ -93,6 +93,11 @@ struct TabBarView: View {
 }
 
 #Preview {
-    TabBarView()
+    TabBarView(selectedTab: .constant(0))
         .preferredColorScheme(.dark)
 }
+
+//#Preview {
+//    TabBarView()
+//        .preferredColorScheme(.dark)
+//}

@@ -10,6 +10,8 @@ import SwiftUI
 //MARK: Full view
 struct BookingView: View {
     
+    @Binding var selectedTab: Int
+    
     @State private var services: [Service] = [
         Service(name: "Selecionar tudo", duration: 0, durationUnit: .minutes, price: 0),
         Service(name: "Cabelo", duration: 40, durationUnit: .minutes, price: 50),
@@ -21,6 +23,9 @@ struct BookingView: View {
     @State private var selectedServices: [Bool] = Array(repeating: false, count: 5)
     @State private var checkBoxState: Bool = false
     @State private var selectedItemIndex: Int? = nil
+    @State private var selectedDate: Date = Date()
+    @State private var selectedTime: Date = Date()
+    @State private var showDatePicker: Bool = false
 
     var body: some View {
         ZStack {
@@ -30,7 +35,7 @@ struct BookingView: View {
             ScrollView(showsIndicators: false) {
                 ZStack {
                     BackgroundSecondaryView(title: "Marcar agendamento", onBackButtonTap: {
-                        print("tapped")
+                        selectedTab = 0
                     })
 
                     VStack {
@@ -135,7 +140,7 @@ struct BookingView: View {
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        GenericDropDown(leftImageName: "Calendar", options: [], placeholder: "Selecione a data disponível")
+                        DateDropDown(selectedDate: $selectedDate)
                             .padding(.top, 24)
                         
                         Text("Selecione o horário")
@@ -145,7 +150,7 @@ struct BookingView: View {
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        GenericDropDown(leftImageName: "Clock", options: [], placeholder: "Selecione o horário disponível")
+                        TimeDropDown(selectedTime: $selectedTime)
                             .padding(.top, 24)
                         
                         MainButton(buttonText: "Reservar meu horário", action: {
@@ -313,8 +318,8 @@ struct ServiceItemView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        BookingView()
+#Preview {
+    StatefulPreviewWrapper(0) { tab in
+        BookingView(selectedTab: tab)
     }
 }

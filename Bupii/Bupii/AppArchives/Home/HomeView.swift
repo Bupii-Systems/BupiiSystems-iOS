@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Binding var shouldNavigateToBooking: Bool
+    @Binding var tabSelection: Int
+    
     var body: some View {
         ZStack {
-    
+            
             Color((AppColor.grayBackground))
                 .ignoresSafeArea()
             
@@ -27,12 +30,19 @@ struct HomeView: View {
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        CellHomeEndUserView(imageName: "Barbershop1DefaultEU", address: "Casa do caralho porra merda aaa")
+                        CellHomeEndUserView(
+                            imageName: "Barbershop1DefaultEU",
+                            address: "Casa 2, São Paulo.",
+                            onBookingTap: {
+                                shouldNavigateToBooking = true
+                                tabSelection = 1
+                            }
+                        )
                             .padding(.top, -48)
                         
                         Spacer()
                     }
-                    .padding(.bottom, 120)  
+                    .padding(.bottom, 120)
                 }
                 .ignoresSafeArea()
             }
@@ -41,6 +51,6 @@ struct HomeView: View {
     }
 }
 
-#Preview {
-    HomeView()
-}
+//#Preview {
+//    HomeView()
+//}

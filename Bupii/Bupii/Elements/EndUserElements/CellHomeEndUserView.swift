@@ -11,6 +11,7 @@ struct CellHomeEndUserView: View {
     
     let imageName: String
     let address: String
+    let onBookingTap: () -> Void
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
@@ -48,10 +49,10 @@ struct CellHomeEndUserView: View {
                 .foregroundStyle(Color(AppColor.text))
                 .padding(.leading, 74)
                 .padding(.trailing, 74)
-                .padding(.bottom, address.count < 25 ? 92 : 92)
+                .padding(.bottom, address.count < 32 ? 102 : 92)
             
             MainButton(buttonText: "Agendar atendimento", action: {
-                print("tapped")
+                onBookingTap()
             })
             .padding(.bottom, 28)
             .padding(.horizontal, 18)
@@ -59,10 +60,10 @@ struct CellHomeEndUserView: View {
     }
 }
 
-#Preview {
-    CellHomeEndUserView(
-        imageName: "Barbershop1DefaultEU",
-        address: "Rua João de Barro, 421 Lapa | São Paulo"
-    )
-    .preferredColorScheme(.dark)
-}
+//#Preview {
+//    CellHomeEndUserView(
+//        imageName: "Barbershop1DefaultEU",
+//        address: "Rua João de Barro, 421 Lapa | São Paulo"
+//    )
+//    .preferredColorScheme(.dark)
+//}

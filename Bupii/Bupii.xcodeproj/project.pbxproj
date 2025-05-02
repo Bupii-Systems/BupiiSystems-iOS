@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850584A52DC52D6400B08CBF /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850584A42DC52D6400B08CBF /* StatefulPreviewWrapper.swift */; };
 		851713362DB8189300022829 /* BupiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851713352DB8189300022829 /* BupiiApp.swift */; };
 		851713382DB8189300022829 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851713372DB8189300022829 /* FirstView.swift */; };
 		8517133A2DB8189400022829 /* AssetsGeneral.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 851713392DB8189400022829 /* AssetsGeneral.xcassets */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		850584A42DC52D6400B08CBF /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
 		851713322DB8189300022829 /* Bupii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bupii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		851713352DB8189300022829 /* BupiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BupiiApp.swift; sourceTree = "<group>"; };
 		851713372DB8189300022829 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */,
 				852AE3212DBCD03500E8E238 /* TrucanteString.swift */,
 				852AE3262DBCD53200E8E238 /* ColorEditor.swift */,
+				850584A42DC52D6400B08CBF /* StatefulPreviewWrapper.swift */,
 			);
 			path = GlobalFunctions;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				852AE30D2DBA8C6400E8E238 /* AlertView.swift in Sources */,
 				852AE32B2DBCD6C800E8E238 /* BackgroundHomeView.swift in Sources */,
 				852AE31F2DBCCB2400E8E238 /* CellHomeEndUserView.swift in Sources */,
+				850584A52DC52D6400B08CBF /* StatefulPreviewWrapper.swift in Sources */,
 				852AE3332DBEB13600E8E238 /* ForgotPasswordView.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,

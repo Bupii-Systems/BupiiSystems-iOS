@@ -8,31 +8,51 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-            TabView {
-                HomeView()
-                    .tabItem {
-                        EmptyView()
-                    }
-                
-                Text("Another screen")
-                    .tabItem {
-                        EmptyView()
-                    }
-            }
-            .overlay(
-                TabBarView()
-                    .frame(maxWidth: .infinity, maxHeight: 70)
-                    .padding(.horizontal, 16)
-                    .offset(y: -32)
-                    .background(Color.clear)
-                    .background(Color(AppColor.grayBackground))
-                    .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 0, y: -2),
-                alignment: .bottom
-            )
-            .edgesIgnoringSafeArea(.bottom)
-        }
+    @State private var selectedTab: Int = 0
+    @State private var shouldNavigateToBooking: Bool = false
+    var shouldShowTabBar: Bool {
+        !(selectedTab == 1 && shouldNavigateToBooking)
     }
+
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
+
+    var body: some View {
+        TabView(selection: $selectedTab) {
+            HomeView(
+                shouldNavigateToBooking: $shouldNavigateToBooking,
+                tabSelection: $selectedTab
+            )
+            .tag(0)
+            .tabItem { EmptyView() }
+
+            BookingView(selectedTab: $selectedTab)
+                .tag(1)
+                .tabItem { EmptyView() }
+            
+        }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .overlay(
+            VStack {
+                Spacer()
+                if shouldShowTabBar {
+                    TabBarView(selectedTab: $selectedTab)
+                        .frame(height: 70)
+                        .padding(.horizontal, 16)
+                        .cornerRadius(40)
+                        .shadow(color: Color.gray.opacity(0.7), radius: 10, x: 0, y: -2)
+                        .padding(.bottom, 8)
+                }
+            }
+        )
+        
+    }
+}
+
+#Preview {
+    ContentView()
+}
 
 #Preview {
     ContentView()
