@@ -9,9 +9,9 @@ import SwiftUI
 
 //MARK: Full view
 struct BookingView: View {
-    
+
     @Binding var selectedTab: Int
-    
+
     @State private var services: [Service] = [
         Service(name: "Selecionar tudo", duration: 0, durationUnit: .minutes, price: 0),
         Service(name: "Cabelo", duration: 40, durationUnit: .minutes, price: 50),
@@ -25,7 +25,7 @@ struct BookingView: View {
     @State private var selectedItemIndex: Int? = nil
     @State private var selectedDate: Date = Date()
     @State private var selectedTime: Date = Date()
-    @State private var showDatePicker: Bool = false
+    @State private var showConfirmationAlert = false
 
     var body: some View {
         ZStack {
@@ -132,31 +132,32 @@ struct BookingView: View {
                         )
                         .padding(.horizontal, 16)
                         .padding(.top, 19)
-                        
+
                         Text("Selecione o local")
                             .foregroundStyle(Color(AppColor.text))
                             .font(.custom("Inter-Bold", size: 16))
                             .padding(.top, 24)
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         DateDropDown(selectedDate: $selectedDate)
                             .padding(.top, 24)
-                        
+
                         Text("Selecione o horário")
                             .foregroundStyle(Color(AppColor.text))
                             .font(.custom("Inter-Bold", size: 16))
                             .padding(.top, 24)
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         TimeDropDown(selectedTime: $selectedTime)
                             .padding(.top, 24)
-                        
+
                         MainButton(buttonText: "Reservar meu horário", action: {
-                            print("tapped")
+                            showConfirmationAlert = true
                         })
                         .padding(.top, 48)
+
                         Spacer()
                             .frame(height: 60)
                     }
@@ -164,6 +165,18 @@ struct BookingView: View {
                 }
             }
             .ignoresSafeArea()
+
+            if showConfirmationAlert {
+                AlertOneButtonView(
+                    message: "Seu agendamento foi confirmado com sucesso!\n\nMuito obrigado!\n\nNos vemos em breve.",
+                    buttonText: "Concluir",
+                    onButtonTap: {
+                        showConfirmationAlert = false
+                    }
+                )
+                .transition(.opacity)
+                .zIndex(1)
+            }
         }
     }
 }
