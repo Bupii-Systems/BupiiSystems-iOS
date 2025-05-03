@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct ForgotPasswordView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    
+    @State private var email: String = ""
+    
     var body: some View {
         ZStack {
             BackgroundSecondaryView(title: "Recuperação de senha", onBackButtonTap: {
-                print("tapped")
+                dismiss()
             })
             VStack {
                 Text("Para recuperar sua senha digite o e-mail cadastrado")
@@ -21,7 +26,7 @@ struct ForgotPasswordView: View {
                     .padding(.leading, 16)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                GenericTextField(leftImageName: "PersonColor", isPasswordField: false, placeholder: "Digite seu e-mail")
+                GenericTextField(text: $email, leftImageName: "PersonColor", isPasswordField: false, placeholder: "Digite seu e-mail")
                     .padding(.top, 32)
                 
                 Spacer() 
@@ -33,6 +38,7 @@ struct ForgotPasswordView: View {
             }
             .ignoresSafeArea()
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GenericTextField: View {
-    @State private var text = ""
+    @Binding var text: String
     @State private var isSecure: Bool = true
     var leftImageName: String
     var isPasswordField: Bool
@@ -82,11 +82,11 @@ struct GenericTextField: View {
     }
 }
 
-#Preview {
-    GenericTextField(
-        leftImageName: "LockColor",
-        isPasswordField: true,
-        placeholder: "Digite sua senha"
-    )
-    .preferredColorScheme(.dark)
-}
+//#Preview {
+//    GenericTextField(
+//        leftImageName: "LockColor",
+//        isPasswordField: true,
+//        placeholder: "Digite sua senha"
+//    )
+//    .preferredColorScheme(.dark)
+//}

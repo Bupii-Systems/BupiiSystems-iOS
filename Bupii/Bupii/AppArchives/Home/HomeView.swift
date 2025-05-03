@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct HomeView: View {
     @Binding var shouldNavigateToBooking: Bool
     @Binding var tabSelection: Int
+    
+    let name = Auth.auth().currentUser?.displayName
     
     var body: some View {
         ZStack {
@@ -19,7 +22,7 @@ struct HomeView: View {
             
             ScrollView {
                 ZStack {
-                    BackgroundHomeView(establishmentName: "BarbeariaRockeFeller", userName: "Larissa Souza")
+                    BackgroundHomeView(establishmentName: "BarbeariaRockeFeller", userName: name ?? "")
                         .ignoresSafeArea()
                     
                     VStack {

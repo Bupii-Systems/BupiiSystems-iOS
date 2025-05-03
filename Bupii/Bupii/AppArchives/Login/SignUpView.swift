@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct SignUpView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    
+    @State private var name: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var confirmPassword: String = ""
+    
     var body: some View {
         ZStack {
             BackgroundSecondaryView(title: "Cadastro", onBackButtonTap: {
-                print("tapped")
+                dismiss()
             })
             VStack {
                 Text("Para se cadastrar preencha os dados abaixo")
@@ -21,24 +29,40 @@ struct SignUpView: View {
                     .padding(.leading, 16)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                GenericTextField(leftImageName: "PersonColor", isPasswordField: false, placeholder: "Digite seu nome")
+                GenericTextField(text: $name, leftImageName: "PersonColor", isPasswordField: false, placeholder: "Digite seu nome")
                     .padding(.top, 32)
                 
-                GenericTextField(leftImageName: "PersonColor", isPasswordField: false, placeholder: "Digite seu e-mail")
+                GenericTextField(text: $email, leftImageName: "PersonColor", isPasswordField: false, placeholder: "Digite seu e-mail")
                     .padding(.top, 16)
                 
-                GenericTextField(leftImageName: "PersonColor", isPasswordField: true, placeholder: "Digite sua senha")
+                GenericTextField(text: $password, leftImageName: "PersonColor", isPasswordField: true, placeholder: "Digite sua senha")
                     .padding(.top, 16)
                 
-                GenericTextField(leftImageName: "PersonColor", isPasswordField: true, placeholder: "Confirme sua senha")
+                GenericTextField(text: $confirmPassword, leftImageName: "PersonColor", isPasswordField: true, placeholder: "Confirme sua senha")
                     .padding(.top, 16)
                 
                 Spacer()
                 
                 MainButton(buttonText: "Confirmar", action: {
-                    print("tapped")
+                    guard !name.isEmpty, !email.isEmpty, !password.isEmpty else {
+                        print("Todos os campos devem ser preenchidos.")
+                        return
+                    }
+
+                    guard password == confirmPassword else {
+                        print("As senhas não coincidem.")
+                        return
+                    }
+
+                    signUp(name: name, email: email, password: password) { result in
+                        switch result {
+                        case .success(let user):
+                            print("Usuário registrado com sucesso: \(user.email ?? "")")
+                        case .failure(let error):
+                            print("Erro ao registrar: \(error.localizedDescription)")
+                        }
+                    }
                 })
-                .padding(.bottom, 24)
                 
                 SecondaryButton(buttonText: "Registrar staff", action: {
                     print("tapped")
@@ -47,6 +71,7 @@ struct SignUpView: View {
             }
             .ignoresSafeArea()
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

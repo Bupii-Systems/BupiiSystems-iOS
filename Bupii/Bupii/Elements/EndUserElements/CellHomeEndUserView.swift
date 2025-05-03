@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct CellHomeEndUserView: View {
     
@@ -52,7 +53,8 @@ struct CellHomeEndUserView: View {
                 .padding(.bottom, address.count < 32 ? 102 : 92)
             
             MainButton(buttonText: "Agendar atendimento", action: {
-                onBookingTap()
+                try? Auth.auth().signOut()
+               // onBookingTap()
             })
             .padding(.bottom, 28)
             .padding(.horizontal, 18)

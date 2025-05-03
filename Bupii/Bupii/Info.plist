@@ -42,7 +42,17 @@
     <key>UIAppFonts</key>
     <array>
         <string>Inter-Bold.otf</string>
-        <string>InterVariable.ttf</string>  
+        <string>InterVariable.ttf</string>
+    </array>
+
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.googleusercontent.apps.617629376354-lfo7bcok8ms96aph83sdif8bqoi66nt6</string>
+            </array>
+        </dict>
     </array>
 </dict>
 </plist>
