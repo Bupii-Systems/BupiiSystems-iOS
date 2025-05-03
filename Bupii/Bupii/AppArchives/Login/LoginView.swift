@@ -14,12 +14,12 @@ struct LoginView: View {
     @State private var goToSignUp = false
     @State private var goToForgotPassword = false
     @State private var goToHome = false
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 BackgroundLoginView(imageName: "LogoDefault")
-
+                
                 VStack(spacing: 0) {
                     Text("Login")
                         .foregroundStyle(Color(AppColor.text))
@@ -33,7 +33,7 @@ struct LoginView: View {
                     
                     GenericTextField(text: $password, leftImageName: "LockColor", isPasswordField: true, placeholder: "Digite a senha")
                         .padding(.top, 24)
-
+                    
                     VStack(alignment: .trailing, spacing: 2) {
                         Button(action: {
                             goToForgotPassword = true
@@ -44,7 +44,7 @@ struct LoginView: View {
                                 .padding(.trailing, 16)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         }
-
+                        
                         Rectangle()
                             .foregroundColor(Color(AppColor.text))
                             .frame(height: 1)
@@ -52,13 +52,13 @@ struct LoginView: View {
                             .padding(.trailing, 16)
                     }
                     .padding(.top, 24)
-
+                    
                     MainButton(buttonText: "Entrar", action: {
                         guard !email.isEmpty, !password.isEmpty else {
                             print("Preencha e-mail e senha.")
                             return
                         }
-
+                        
                         login(email: email, password: password) { result in
                             switch result {
                             case .success(let user):
@@ -70,7 +70,7 @@ struct LoginView: View {
                         }
                     })
                     .padding(.top, 24)
-
+                    
                     VStack(spacing: 0) {
                         VStack(spacing: 2) {
                             Button(action: {
@@ -81,30 +81,32 @@ struct LoginView: View {
                                     .font(.custom("Inter-Regular", size: 16))
                                     .frame(maxWidth: .infinity, alignment: .center)
                             }
-
+                            
                             Rectangle()
                                 .foregroundColor(Color(AppColor.brand))
                                 .frame(height: 1)
                                 .frame(width: 146)
                         }
                         .padding(.top, 24)
-
+                        
                         Text("Entrar utilizando:")
                             .foregroundStyle(Color(AppColor.text))
                             .font(.custom("Inter-Bold", size: 18))
                             .padding(.top, 34)
-
+                        
                         HStack(spacing: 24) {
-                            Button(action: {
-                                print("Login with Apple tapped")
-                            }) {
-                                Image("LoginWithApple")
-                                    .resizable()
-                                    .frame(width: 48, height: 48)
-                                    .background(Color(hexColor("#E6E6E6")))
-                                    .clipShape(Circle())
-                            }
-
+                            
+                            //MARK: TO DO: In the future, use the apple account 
+                            //                            Button(action: {
+                            //                                print("Login with Apple tapped")
+                            //                            }) {
+                            //                                Image("LoginWithApple")
+                            //                                    .resizable()
+                            //                                    .frame(width: 48, height: 48)
+                            //                                    .background(Color(hexColor("#E6E6E6")))
+                            //                                    .clipShape(Circle())
+                            //                            }
+                            
                             Button(action: {
                                 if let rootVC = UIApplication.shared.connectedScenes
                                     .compactMap({ $0 as? UIWindowScene })
@@ -128,14 +130,14 @@ struct LoginView: View {
                                     .clipShape(Circle())
                             }
                         }
-                        .padding(.top, 8)
-
+                        .padding(.top, 12)
+                        
                         Text("Ainda não tem uma conta?")
                             .foregroundStyle(Color(AppColor.text))
                             .font(.custom("Inter-Regular", size: 16))
                             .padding(.top, 32)
                             .frame(maxWidth: .infinity, alignment: .center)
-
+                        
                         Button(action: {
                             goToSignUp = true
                         }) {
@@ -145,18 +147,18 @@ struct LoginView: View {
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 .padding(.top, 4)
                         }
-
+                        
                         Rectangle()
                             .foregroundColor(Color(AppColor.brand))
                             .frame(height: 1)
                             .frame(width: 230)
                     }
-
+                    
                     Spacer()
                 }
                 .ignoresSafeArea()
             }
-
+            
             .navigationDestination(isPresented: $goToHome) {
                 ContentView()
                     .navigationBarBackButtonHidden(true)

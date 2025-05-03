@@ -45,21 +45,21 @@ struct SignUpView: View {
                 
                 MainButton(buttonText: "Confirmar", action: {
                     guard !name.isEmpty, !email.isEmpty, !password.isEmpty else {
-                        print("Todos os campos devem ser preenchidos.")
+                        print("Every fields need to have text")
                         return
                     }
 
                     guard password == confirmPassword else {
-                        print("As senhas não coincidem.")
+                        print("Password and confirm password are different's.")
                         return
                     }
 
                     signUp(name: name, email: email, password: password) { result in
                         switch result {
                         case .success(let user):
-                            print("Usuário registrado com sucesso: \(user.email ?? "")")
+                            print("Sign up successfull: \(user.email ?? "")")
                         case .failure(let error):
-                            print("Erro ao registrar: \(error.localizedDescription)")
+                            print("Error sign up: \(error.localizedDescription)")
                         }
                     }
                 })
