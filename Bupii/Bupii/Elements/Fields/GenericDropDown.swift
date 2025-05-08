@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GenericDropDown: View {
-    @State private var text = ""
+    @Binding var selection: String
     @State private var isExpanded = false
     var leftImageName: String
     var options: [String]
@@ -21,7 +21,6 @@ struct GenericDropDown: View {
                     .foregroundColor(self.isExpanded ? Color(AppColor.brand).opacity(0.2) : .white)
                     .frame(height: 56)
                     .cornerRadius(8)
-                    .zIndex(0)
 
                 HStack {
                     Image(leftImageName)
@@ -33,7 +32,7 @@ struct GenericDropDown: View {
                         .foregroundStyle(AppColor.brand)
 
                     ZStack {
-                        if text.isEmpty {
+                        if selection.isEmpty {
                             Text(placeholder)
                                 .foregroundColor(Color(AppColor.text))
                                 .font(.custom("Inter-Regular", size: 16))
@@ -41,10 +40,7 @@ struct GenericDropDown: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
 
-                        Text(text)
-                            .padding(10)
-                            .background(Color.clear)
-                            .cornerRadius(8)
+                        Text(selection)
                             .font(.custom("Inter-Regular", size: 16))
                             .foregroundColor(Color(AppColor.text))
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -67,7 +63,6 @@ struct GenericDropDown: View {
                         isExpanded.toggle()
                     }
                 }
-                .zIndex(1)
             }
 
             if isExpanded {
@@ -79,7 +74,7 @@ struct GenericDropDown: View {
                             .background(Color.white)
                             .foregroundColor(Color(AppColor.text))
                             .onTapGesture {
-                                text = option
+                                selection = option
                                 withAnimation {
                                     isExpanded = false
                                 }
@@ -88,7 +83,6 @@ struct GenericDropDown: View {
                 }
                 .background(Color.white)
                 .cornerRadius(8)
-                .frame(maxWidth: .infinity)
             }
         }
         .padding(.horizontal, 16)
@@ -236,11 +230,11 @@ struct TimeDropDown: View {
 //    }
 //}
 
-#Preview {
-    GenericDropDown(
-        leftImageName: "Calendar",
-        options: ["Limited Access", "Full Access", "Restricted Access"],
-        placeholder: "Escolha a opção"
-    )
-    .preferredColorScheme(.dark)
-}
+//#Preview {
+//    GenericDropDown(
+//        leftImageName: "Calendar",
+//        options: ["Limited Access", "Full Access", "Restricted Access"],
+//        placeholder: "Escolha a opção"
+//    )
+//    .preferredColorScheme(.dark)
+//}

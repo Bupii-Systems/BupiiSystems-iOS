@@ -50,6 +50,12 @@
 		852AE3382DBEB7FB00E8E238 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE3372DBEB7FB00E8E238 /* HomeView.swift */; };
 		852AE33B2DC17AD700E8E238 /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE33A2DC17AD700E8E238 /* BookingView.swift */; };
 		852AE35D2DC4E39B00E8E238 /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE35C2DC4E39B00E8E238 /* BookingModel.swift */; };
+		853E297F2DC7723B0061D820 /* MyAgendaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E297E2DC7723B0061D820 /* MyAgendaView.swift */; };
+		853E29822DC93EEA0061D820 /* ProductsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29812DC93EEA0061D820 /* ProductsCellView.swift */; };
+		853E29842DC95A060061D820 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29832DC95A060061D820 /* ProductGridView.swift */; };
+		853E29862DC95B3A0061D820 /* AppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29852DC95B3A0061D820 /* AppointmentModel.swift */; };
+		853E29882DC95CDB0061D820 /* FormattedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29872DC95CDB0061D820 /* FormattedFunctions.swift */; };
+		853E298B2DC95E9B0061D820 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 853E298A2DC95E9B0061D820 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +116,11 @@
 		852AE3372DBEB7FB00E8E238 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		852AE33A2DC17AD700E8E238 /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
 		852AE35C2DC4E39B00E8E238 /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
+		853E297E2DC7723B0061D820 /* MyAgendaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgendaView.swift; sourceTree = "<group>"; };
+		853E29812DC93EEA0061D820 /* ProductsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCellView.swift; sourceTree = "<group>"; };
+		853E29832DC95A060061D820 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
+		853E29852DC95B3A0061D820 /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentModel.swift; sourceTree = "<group>"; };
+		853E29872DC95CDB0061D820 /* FormattedFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +135,7 @@
 				850585192DC66AC600B08CBF /* FirebaseFirestore in Frameworks */,
 				850585132DC66AC600B08CBF /* FirebaseAppDistribution-Beta in Frameworks */,
 				8505851B2DC66AC600B08CBF /* FirebaseStorage in Frameworks */,
+				853E298B2DC95E9B0061D820 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +179,7 @@
 				851713452DB8189400022829 /* BupiiTests */,
 				8517134F2DB8189400022829 /* BupiiUITests */,
 				851713332DB8189300022829 /* Products */,
+				853E29892DC95E9B0061D820 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,6 +255,7 @@
 		851713612DB81D1D00022829 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				853E29802DC93EB40061D820 /* ProductsCell */,
 				852AE3202DBCCCB000E8E238 /* EndUserElements */,
 				852AE3182DBBCD3F00E8E238 /* StaffElements */,
 				852AE3112DBAD56500E8E238 /* TabBar */,
@@ -347,6 +361,7 @@
 		852AE32E2DBCE33B00E8E238 /* AppArchives */ = {
 			isa = PBXGroup;
 			children = (
+				853E297D2DC772240061D820 /* MyAgenda */,
 				8505851C2DC6722100B08CBF /* AppEntryView */,
 				852AE3392DC17AB900E8E238 /* Booking */,
 				852AE3362DBEB7EE00E8E238 /* Home */,
@@ -378,8 +393,34 @@
 			children = (
 				852AE33A2DC17AD700E8E238 /* BookingView.swift */,
 				852AE35C2DC4E39B00E8E238 /* BookingModel.swift */,
+				853E29852DC95B3A0061D820 /* AppointmentModel.swift */,
+				853E29872DC95CDB0061D820 /* FormattedFunctions.swift */,
 			);
 			path = Booking;
+			sourceTree = "<group>";
+		};
+		853E297D2DC772240061D820 /* MyAgenda */ = {
+			isa = PBXGroup;
+			children = (
+				853E297E2DC7723B0061D820 /* MyAgendaView.swift */,
+			);
+			path = MyAgenda;
+			sourceTree = "<group>";
+		};
+		853E29802DC93EB40061D820 /* ProductsCell */ = {
+			isa = PBXGroup;
+			children = (
+				853E29812DC93EEA0061D820 /* ProductsCellView.swift */,
+				853E29832DC95A060061D820 /* ProductGridView.swift */,
+			);
+			path = ProductsCell;
+			sourceTree = "<group>";
+		};
+		853E29892DC95E9B0061D820 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +447,7 @@
 				850585182DC66AC600B08CBF /* FirebaseFirestore */,
 				8505851A2DC66AC600B08CBF /* FirebaseStorage */,
 				850585222DC67BE700B08CBF /* GoogleSignInSwift */,
+				853E298A2DC95E9B0061D820 /* FirebaseFirestoreSwift */,
 			);
 			productName = Bupii;
 			productReference = 851713322DB8189300022829 /* Bupii.app */;
@@ -530,6 +572,7 @@
 			files = (
 				851713752DB986F300022829 /* SecondaryButton.swift in Sources */,
 				852AE3222DBCD03500E8E238 /* TrucanteString.swift in Sources */,
+				853E29842DC95A060061D820 /* ProductGridView.swift in Sources */,
 				852AE3172DBB9CFC00E8E238 /* GenericDropDown.swift in Sources */,
 				851713382DB8189300022829 /* FirstView.swift in Sources */,
 				850585252DC67C8700B08CBF /* AppDelegate.swift in Sources */,
@@ -537,12 +580,15 @@
 				852AE32D2DBCD70300E8E238 /* BackgroundSecondaryView.swift in Sources */,
 				852AE3132DBAD57B00E8E238 /* TabBarView.swift in Sources */,
 				852AE31A2DBBCD6300E8E238 /* CellHomeStaffView.swift in Sources */,
+				853E29882DC95CDB0061D820 /* FormattedFunctions.swift in Sources */,
 				852AE30D2DBA8C6400E8E238 /* AlertView.swift in Sources */,
 				8505851E2DC6723200B08CBF /* AppEntryView.swift in Sources */,
 				852AE32B2DBCD6C800E8E238 /* BackgroundHomeView.swift in Sources */,
+				853E29822DC93EEA0061D820 /* ProductsCellView.swift in Sources */,
 				852AE31F2DBCCB2400E8E238 /* CellHomeEndUserView.swift in Sources */,
 				850584A52DC52D6400B08CBF /* StatefulPreviewWrapper.swift in Sources */,
 				852AE3332DBEB13600E8E238 /* ForgotPasswordView.swift in Sources */,
+				853E29862DC95B3A0061D820 /* AppointmentModel.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
 				852AE3312DBCE36E00E8E238 /* LoginView.swift in Sources */,
@@ -553,6 +599,7 @@
 				852AE3352DBEB17600E8E238 /* SignUpView.swift in Sources */,
 				852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */,
 				852AE3152DBB93B900E8E238 /* GenericTextField.swift in Sources */,
+				853E297F2DC7723B0061D820 /* MyAgendaView.swift in Sources */,
 				852AE33B2DC17AD700E8E238 /* BookingView.swift in Sources */,
 				850584A92DC531AC00B08CBF /* AlertOneButtonView.swift in Sources */,
 				852AE3272DBCD53200E8E238 /* ColorEditor.swift in Sources */,
@@ -944,6 +991,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 850585212DC67BE700B08CBF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		853E298A2DC95E9B0061D820 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8505850F2DC66AC600B08CBF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

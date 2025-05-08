@@ -13,11 +13,11 @@ struct ContentView: View {
     var shouldShowTabBar: Bool {
         !(selectedTab == 1 && shouldNavigateToBooking)
     }
-
+    
     init() {
         UITabBar.appearance().isHidden = true
     }
-
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             HomeView(
@@ -26,9 +26,13 @@ struct ContentView: View {
             )
             .tag(0)
             .tabItem { EmptyView() }
-
+            
             BookingView(selectedTab: $selectedTab)
                 .tag(1)
+                .tabItem { EmptyView() }
+            
+            MyAgendaView()
+                .tag(2)
                 .tabItem { EmptyView() }
             
         }
@@ -54,6 +58,3 @@ struct ContentView: View {
     ContentView()
 }
 
-#Preview {
-    ContentView()
-}
