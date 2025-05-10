@@ -179,7 +179,7 @@ struct MyAgendaView: View {
                         
                         ProductGridView()
                         
-                        Spacer().frame(height: 60)
+                        Spacer().frame(height: 160)
                     }
                     .ignoresSafeArea()
                 }

@@ -202,7 +202,7 @@ struct BookingView: View {
                         }
                         .padding(.top, 48)
                         
-                        Spacer().frame(height: 60)
+                        Spacer().frame(height: 160)
                     }
                 }
             }

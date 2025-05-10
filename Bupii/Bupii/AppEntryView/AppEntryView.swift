@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct AppEntryView: View {
-    @State private var isLoggedIn = false
+    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
 
     var body: some View {
         Group {

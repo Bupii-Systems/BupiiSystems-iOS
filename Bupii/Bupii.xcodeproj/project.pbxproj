@@ -56,6 +56,7 @@
 		853E29862DC95B3A0061D820 /* AppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29852DC95B3A0061D820 /* AppointmentModel.swift */; };
 		853E29882DC95CDB0061D820 /* FormattedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29872DC95CDB0061D820 /* FormattedFunctions.swift */; };
 		853E298B2DC95E9B0061D820 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 853E298A2DC95E9B0061D820 /* FirebaseFirestoreSwift */; };
+		853E29A12DCD35F60061D820 /* ProfileAndSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29A02DCD35F60061D820 /* ProfileAndSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		853E29832DC95A060061D820 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
 		853E29852DC95B3A0061D820 /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentModel.swift; sourceTree = "<group>"; };
 		853E29872DC95CDB0061D820 /* FormattedFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedFunctions.swift; sourceTree = "<group>"; };
+		853E29A02DCD35F60061D820 /* ProfileAndSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAndSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		851713342DB8189300022829 /* Bupii */ = {
 			isa = PBXGroup;
 			children = (
+				8505851C2DC6722100B08CBF /* AppEntryView */,
 				852AE32E2DBCE33B00E8E238 /* AppArchives */,
 				852AE3232DBCD2DF00E8E238 /* BackgroundView */,
 				852AE31B2DBBD17C00E8E238 /* GlobalFunctions */,
@@ -361,8 +364,8 @@
 		852AE32E2DBCE33B00E8E238 /* AppArchives */ = {
 			isa = PBXGroup;
 			children = (
+				853E299F2DCD35DF0061D820 /* ProfileAndSettings */,
 				853E297D2DC772240061D820 /* MyAgenda */,
-				8505851C2DC6722100B08CBF /* AppEntryView */,
 				852AE3392DC17AB900E8E238 /* Booking */,
 				852AE3362DBEB7EE00E8E238 /* Home */,
 				852AE32F2DBCE35900E8E238 /* Login */,
@@ -421,6 +424,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		853E299F2DCD35DF0061D820 /* ProfileAndSettings */ = {
+			isa = PBXGroup;
+			children = (
+				853E29A02DCD35F60061D820 /* ProfileAndSettingsView.swift */,
+			);
+			path = ProfileAndSettings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -583,6 +594,7 @@
 				853E29882DC95CDB0061D820 /* FormattedFunctions.swift in Sources */,
 				852AE30D2DBA8C6400E8E238 /* AlertView.swift in Sources */,
 				8505851E2DC6723200B08CBF /* AppEntryView.swift in Sources */,
+				853E29A12DCD35F60061D820 /* ProfileAndSettingsView.swift in Sources */,
 				852AE32B2DBCD6C800E8E238 /* BackgroundHomeView.swift in Sources */,
 				853E29822DC93EEA0061D820 /* ProductsCellView.swift in Sources */,
 				852AE31F2DBCCB2400E8E238 /* CellHomeEndUserView.swift in Sources */,

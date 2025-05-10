@@ -35,6 +35,10 @@ struct ContentView: View {
                 .tag(2)
                 .tabItem { EmptyView() }
             
+            ProfileAndSettingsView()
+                .tag(3)
+                .tabItem { EmptyView() }
+            
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .overlay(
