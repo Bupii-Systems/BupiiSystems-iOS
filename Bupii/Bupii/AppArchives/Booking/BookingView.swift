@@ -12,11 +12,14 @@ import FirebaseAuth
 
 //MARK: Full view
 struct BookingView: View {
-    @Binding var selectedTab: Int
+    @Environment(\.dismiss) var dismiss
     
+    @Binding var shouldNavigateToBooking: Bool
+    @Binding var selectedTab: Int
+
     let names = ["Pedro Santos", "João Silva", "Maria Oliveira", "Alberto Costa"]
     let images = ["Person1", "Person2", "Person3", "Person4"]
-    
+
     @State private var services: [Service] = [
         Service(name: "Selecionar tudo", duration: 0, durationUnit: .minutes, price: 0),
         Service(name: "Cabelo", duration: 40, durationUnit: .minutes, price: 50),
@@ -24,7 +27,7 @@ struct BookingView: View {
         Service(name: "Sobrancelha", duration: 15, durationUnit: .minutes, price: 15),
         Service(name: "Progressiva", duration: 2, durationUnit: .hours, price: 200)
     ]
-    
+
     @State private var selectedServices: [Bool] = Array(repeating: false, count: 5)
     @State private var checkBoxState: Bool = false
     @State private var selectedItemIndex: Int? = nil
@@ -32,17 +35,18 @@ struct BookingView: View {
     @State private var selectedTime: Date = Date()
     @State private var showConfirmationAlert = false
     @State private var selectedLocation: String = "Address 1"
-    
+
     var body: some View {
         ZStack {
             Color(AppColor.grayBackground).ignoresSafeArea()
-            
+
             ScrollView(showsIndicators: false) {
                 ZStack {
                     BackgroundSecondaryView(title: "Marcar agendamento", onBackButtonTap: {
                         selectedTab = 0
+                        dismiss()
                     })
-                    
+
                     VStack {
                         Text("Selecione o local")
                             .font(.custom("Inter-Bold", size: 16))
@@ -50,7 +54,7 @@ struct BookingView: View {
                             .padding(.top, 141)
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         GenericDropDown(
                             selection: $selectedLocation,
                             leftImageName: "LocationColor",
@@ -58,14 +62,14 @@ struct BookingView: View {
                             placeholder: "Address 1"
                         )
                         .padding(.top, 24)
-                        
+
                         Text("Escolha o profissional para atendê-lo")
                             .font(.custom("Inter-Bold", size: 16))
                             .foregroundStyle(Color(AppColor.text))
                             .padding(.top, 24)
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         BookingBuild1View(
                             selectedItemIndex: $selectedItemIndex,
                             checkBoxState: $checkBoxState,
@@ -73,7 +77,7 @@ struct BookingView: View {
                             names: names
                         )
                         .padding(.top, 24)
-                        
+
                         HStack {
                             Button {
                                 checkBoxState.toggle()
@@ -84,29 +88,31 @@ struct BookingView: View {
                                     .foregroundStyle(checkBoxState ? Color(AppColor.brand) : Color(AppColor.text))
                                     .padding(.leading, 16)
                             }
+
                             Text("Não tenho preferência por profissional")
                                 .font(.custom("Inter-Regular", size: 14))
                                 .foregroundStyle(AppColor.text)
                                 .padding(.trailing, 16)
+
                             Spacer()
                         }
-                        
+
                         Text("Selecione os serviços que deseja")
                             .font(.custom("Inter-Bold", size: 16))
                             .foregroundStyle(Color(AppColor.text))
                             .padding(.top, 24)
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
+
                         let totalPrice = services.indices.reduce(0.0) { acc, index in
                             selectedServices[index] ? acc + services[index].price : acc
                         }
-                        
+
                         VStack(alignment: .leading, spacing: 16) {
                             ForEach(services.indices, id: \.self) { index in
                                 let service = services[index]
                                 let isMain = index == 0
-                                
+
                                 ServiceItemView(
                                     isSelected: Binding(
                                         get: { selectedServices[index] },
@@ -129,7 +135,7 @@ struct BookingView: View {
                                     : nil
                                 )
                             }
-                            
+
                             Text("Total: R$ \(totalPrice, specifier: "%.2f")")
                                 .font(.custom("Inter-Bold", size: 18))
                                 .foregroundStyle(Color(AppColor.brand))
@@ -143,33 +149,33 @@ struct BookingView: View {
                         )
                         .padding(.horizontal, 16)
                         .padding(.top, 19)
-                        
+
                         Text("Selecione o local")
                             .font(.custom("Inter-Bold", size: 16))
                             .foregroundStyle(Color(AppColor.text))
                             .padding(.top, 24)
                             .padding(.leading, 16)
-                        
+
                         DateDropDown(selectedDate: $selectedDate)
                             .padding(.top, 24)
-                        
+
                         Text("Selecione o horário")
                             .font(.custom("Inter-Bold", size: 16))
                             .foregroundStyle(Color(AppColor.text))
                             .padding(.top, 24)
                             .padding(.leading, 16)
-                        
+
                         TimeDropDown(selectedTime: $selectedTime)
                             .padding(.top, 24)
-                        
+
                         MainButton(buttonText: "Reservar meu horário") {
                             if let userId = Auth.auth().currentUser?.uid {
                                 let selectedServicesNames = services.indices.compactMap { index in
                                     selectedServices[index] && index != 0 ? services[index].name : nil
                                 }
-                                
+
                                 let locationName = selectedLocation
-                                
+
                                 let locationAddress: String = {
                                     switch selectedLocation {
                                     case "Address 1":
@@ -180,7 +186,7 @@ struct BookingView: View {
                                         return "Endereço não encontrado"
                                     }
                                 }()
-                                
+
                                 let appointment = Appointment(
                                     userId: userId,
                                     services: selectedServicesNames,
@@ -191,7 +197,7 @@ struct BookingView: View {
                                     location: locationName,
                                     address: locationAddress
                                 )
-                                
+
                                 saveAppointment(appointment: appointment) { result in
                                     switch result {
                                     case .success(): showConfirmationAlert = true
@@ -201,26 +207,31 @@ struct BookingView: View {
                             }
                         }
                         .padding(.top, 48)
-                        
-                        Spacer().frame(height: 160)
+
+                        Spacer().frame(height: 60)
                     }
                 }
             }
-            
+
             if showConfirmationAlert {
                 AlertOneButtonView(
                     message: "Seu agendamento foi confirmado com sucesso!\n\nMuito obrigado!\n\nNos vemos em breve.",
                     buttonText: "Concluir",
-                    onButtonTap: { showConfirmationAlert = false }
+                    onButtonTap: {
+                        showConfirmationAlert = false
+                        shouldNavigateToBooking = false
+                        selectedTab = 2
+                    }
                 )
                 .transition(.opacity)
                 .zIndex(1)
             }
         }
         .ignoresSafeArea(.all)
+        .navigationBarBackButtonHidden(true)
+        .toolbar(.hidden, for: .tabBar)
     }
-    
-    //MARK: Functions to save appointment
+
     func saveAppointment(appointment: Appointment, completion: @escaping (Result<Void, Error>) -> Void) {
         let db = Firestore.firestore()
         do {
@@ -230,13 +241,13 @@ struct BookingView: View {
             completion(.failure(error))
         }
     }
-    
+
     private func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         return formatter.string(from: date)
     }
-    
+
     private func formatTime(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"

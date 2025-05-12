@@ -53,8 +53,7 @@ struct CellHomeEndUserView: View {
                 .padding(.bottom, address.count < 32 ? 102 : 92)
             
             MainButton(buttonText: "Agendar atendimento", action: {
-                try? Auth.auth().signOut()
-               // onBookingTap()
+                onBookingTap()
             })
             .padding(.bottom, 28)
             .padding(.horizontal, 18)

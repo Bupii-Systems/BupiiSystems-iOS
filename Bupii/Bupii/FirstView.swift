@@ -11,7 +11,7 @@ struct ContentView: View {
     @State private var selectedTab: Int = 0
     @State private var shouldNavigateToBooking: Bool = false
     var shouldShowTabBar: Bool {
-        !(selectedTab == 1 && shouldNavigateToBooking)
+        !shouldNavigateToBooking
     }
     
     init() {
@@ -27,7 +27,7 @@ struct ContentView: View {
             .tag(0)
             .tabItem { EmptyView() }
             
-            BookingView(selectedTab: $selectedTab)
+            TeamView()
                 .tag(1)
                 .tabItem { EmptyView() }
             
@@ -39,6 +39,12 @@ struct ContentView: View {
                 .tag(3)
                 .tabItem { EmptyView() }
             
+        }
+        .fullScreenCover(isPresented: $shouldNavigateToBooking) {
+            BookingView(
+                shouldNavigateToBooking: $shouldNavigateToBooking,
+                selectedTab: $selectedTab
+            )
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .overlay(
