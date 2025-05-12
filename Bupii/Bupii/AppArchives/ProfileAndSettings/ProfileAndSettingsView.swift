@@ -8,14 +8,17 @@
 import SwiftUI
 import FirebaseAuth
 import PhotosUI
-import FirebaseStorage
-import FirebaseFirestore
 
 struct ProfileAndSettingsView: View {
     @AppStorage("isLoggedIn") var isLoggedIn: Bool = true
-    @State private var appointments: [Appointment] = []
+    @AppStorage("storedProfileImage") private var storedProfileImageData: String = ""
+    
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var profileImage: UIImage? = nil
+    @State private var userEmail: String = ""
+    @State private var accountCreationYear: String = ""
+
+    let defaultImage = UIImage(named: "PersonProfilePicture")!
 
     var body: some View {
         ZStack {
@@ -24,9 +27,7 @@ struct ProfileAndSettingsView: View {
 
             ScrollView(showsIndicators: false) {
                 ZStack {
-                    BackgroundSecondaryView(title: "Perfil", onBackButtonTap: {
-                        print("")
-                    })
+                    BackgroundSecondaryView(title: "Perfil", onBackButtonTap: {})
 
                     VStack {
                         ZStack(alignment: .topTrailing) {
@@ -34,12 +35,14 @@ struct ProfileAndSettingsView: View {
                                 Image(uiImage: profileImage)
                                     .resizable()
                                     .scaledToFit()
+                                    .frame(maxHeight: 287)
                                     .cornerRadius(16)
                                     .frame(maxWidth: .infinity)
                             } else {
                                 Image("PersonProfilePicture")
                                     .resizable()
                                     .scaledToFit()
+                                    .frame(maxHeight: 287)
                                     .cornerRadius(16)
                                     .frame(maxWidth: .infinity)
                             }
@@ -73,7 +76,7 @@ struct ProfileAndSettingsView: View {
                                             .font(.custom("Inter-Regular", size: 16))
                                             .foregroundColor(AppColor.text)
 
-                                        Text("2024")
+                                        Text(accountCreationYear)
                                             .font(.custom("Inter-Bold", size: 16))
                                             .foregroundColor(AppColor.brand)
                                     }
@@ -101,14 +104,14 @@ struct ProfileAndSettingsView: View {
                                 .padding(.horizontal, 16)
                             )
 
-                        Text("Login")
+                        Text("Email")
                             .foregroundStyle(Color(AppColor.text))
                             .font(.custom("Inter-Bold", size: 18))
                             .padding(.top, 24)
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
 
-                        Text("pedroriibeiro.dev@gmail.com")
+                        Text(userEmail)
                             .foregroundStyle(Color(AppColor.text))
                             .font(.custom("Inter-regular", size: 16))
                             .padding(.top, 8)
@@ -165,86 +168,32 @@ struct ProfileAndSettingsView: View {
             .ignoresSafeArea()
         }
         .onAppear {
-            fetchProfileImage()
+            if let data = Data(base64Encoded: storedProfileImageData),
+               let uiImage = UIImage(data: data) {
+                profileImage = uiImage
+            }
+
+            if let email = Auth.auth().currentUser?.email {
+                userEmail = email
+            }
+
+            if let user = Auth.auth().currentUser {
+                user.reload { _ in
+                    if let creationDate = user.metadata.creationDate {
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "yyyy"
+                        accountCreationYear = formatter.string(from: creationDate)
+                    }
+                }
+            }
         }
         .onChange(of: selectedItem) { newItem in
             Task {
                 if let data = try? await newItem?.loadTransferable(type: Data.self),
                    let uiImage = UIImage(data: data) {
                     profileImage = uiImage
-                    uploadProfileImage(uiImage) { result in
-                        switch result {
-                        case .success(let url): print("Upload saved. success: \(url)")
-                        case .failure(let error): print("Error to save the image: \(error.localizedDescription)")
-                        }
-                    }
+                    storedProfileImageData = data.base64EncodedString()
                 }
-            }
-        }
-    }
-
-    func fetchProfileImage() {
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-
-        let db = Firestore.firestore()
-        db.collection("users").document(userID).getDocument { snapshot, error in
-            if let data = snapshot?.data(),
-               let urlString = data["profileImageUrl"] as? String,
-               let url = URL(string: urlString) {
-                URLSession.shared.dataTask(with: url) { data, _, _ in
-                    if let data = data, let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            profileImage = image
-                        }
-                    }
-                }.resume()
-            }
-        }
-    }
-
-    func uploadProfileImage(_ image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
-        guard let userID = Auth.auth().currentUser?.uid,
-              let imageData = image.jpegData(compressionQuality: 0.8) else {
-            return
-        }
-
-        let storageRef = Storage.storage().reference().child("profileImages/\(userID).jpg")
-
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/jpeg"
-
-        storageRef.putData(imageData, metadata: metadata) { metadata, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-
-            guard metadata != nil else {
-                completion(.failure(NSError(domain: "UploadError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Metadata is nil after upload."])))
-                return
-            }
-
-            fetchDownloadURLWithRetry(from: storageRef, retries: 3, delay: 1, completion: completion)
-        }
-    }
-
-    private func fetchDownloadURLWithRetry(from ref: StorageReference, retries: Int, delay: TimeInterval, completion: @escaping (Result<URL, Error>) -> Void) {
-        ref.downloadURL { url, error in
-            if let url = url {
-                if let userID = Auth.auth().currentUser?.uid {
-                    let db = Firestore.firestore()
-                    db.collection("users").document(userID).setData(
-                        ["profileImageUrl": url.absoluteString],
-                        merge: true
-                    )
-                }
-                completion(.success(url))
-            } else if retries > 0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                    fetchDownloadURLWithRetry(from: ref, retries: retries - 1, delay: delay, completion: completion)
-                }
-            } else if let error = error {
-                completion(.failure(error))
             }
         }
     }
