@@ -13,12 +13,14 @@ import FirebaseAuth
 //MARK: Full view
 struct BookingView: View {
     @Environment(\.dismiss) var dismiss
-    
+
     @Binding var shouldNavigateToBooking: Bool
     @Binding var selectedTab: Int
 
     let names = ["Pedro Santos", "João Silva", "Maria Oliveira", "Alberto Costa"]
     let images = ["Person1", "Person2", "Person3", "Person4"]
+    
+    var editingAppointment: Appointment?
 
     @State private var services: [Service] = [
         Service(name: "Selecionar tudo", duration: 0, durationUnit: .minutes, price: 0),
@@ -35,6 +37,10 @@ struct BookingView: View {
     @State private var selectedTime: Date = Date()
     @State private var showConfirmationAlert = false
     @State private var selectedLocation: String = "Address 1"
+
+    var isServiceSelected: Bool {
+        selectedServices.indices.contains { $0 != 0 && selectedServices[$0] }
+    }
 
     var body: some View {
         ZStack {
@@ -131,8 +137,8 @@ struct BookingView: View {
                                     font: .custom(isMain ? "Inter-Regular" : "Inter-Bold", size: isMain ? 16 : 18),
                                     foregroundColor: isMain ? Color(AppColor.brand) : Color(AppColor.text),
                                     subtext: (index > 0 && service.price > 0)
-                                    ? "\(service.duration)\(service.durationUnit == .minutes ? "min" : "H") - R$\(Int(service.price))"
-                                    : nil
+                                        ? "\(service.duration)\(service.durationUnit == .minutes ? "min" : "H") - R$\(Int(service.price))"
+                                        : nil
                                 )
                             }
 
@@ -156,7 +162,7 @@ struct BookingView: View {
                             .padding(.top, 24)
                             .padding(.leading, 16)
 
-                        DateDropDown(selectedDate: $selectedDate)
+                        DateDropDown(selectedDate: $selectedDate, allowedWeekdays: [2, 3, 4, 5, 6])
                             .padding(.top, 24)
 
                         Text("Selecione o horário")
@@ -165,7 +171,7 @@ struct BookingView: View {
                             .padding(.top, 24)
                             .padding(.leading, 16)
 
-                        TimeDropDown(selectedTime: $selectedTime)
+                        TimeDropDown(selectedTime: $selectedTime, openingHour: 9, closingHour: 20)
                             .padding(.top, 24)
 
                         MainButton(buttonText: "Reservar meu horário") {
@@ -206,6 +212,8 @@ struct BookingView: View {
                                 }
                             }
                         }
+                        .disabled(!isServiceSelected)
+                        .opacity(isServiceSelected ? 1 : 0.8)
                         .padding(.top, 48)
 
                         Spacer().frame(height: 60)

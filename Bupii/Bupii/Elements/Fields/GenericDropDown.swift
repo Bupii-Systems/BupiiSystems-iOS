@@ -93,13 +93,17 @@ struct GenericDropDown: View {
 struct DateDropDown: View {
     @Binding var selectedDate: Date
     @State private var isExpanded = false
+    @State private var showToast = false
+    @State private var didAppearOnce = false
+
     var placeholder: String = "Selecione a data"
+    var allowedWeekdays: [Int] = [2, 3, 4, 5, 6]
 
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             ZStack {
                 Rectangle()
-                    .foregroundColor(self.isExpanded ? Color(AppColor.brand).opacity(0.2) : .white)
+                    .foregroundColor(isExpanded ? Color(AppColor.brand).opacity(0.2) : .white)
                     .frame(height: 56)
                     .cornerRadius(8)
 
@@ -132,7 +136,7 @@ struct DateDropDown: View {
             }
 
             if isExpanded {
-                DatePicker("", selection: $selectedDate, in: Date()..., displayedComponents: .date)
+                DatePicker("", selection: $selectedDate, in: validDateRange, displayedComponents: .date)
                     .datePickerStyle(.graphical)
                     .labelsHidden()
                     .padding()
@@ -140,8 +144,39 @@ struct DateDropDown: View {
                     .background(Color.white)
                     .cornerRadius(8)
             }
+
+            if showToast {
+                ToastView(message: "Esta data não está disponível. Selecionamos outra para você.")
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                            showToast = false
+                        }
+                    }
+            }
         }
         .padding(.horizontal, 16)
+        .onAppear {
+            // Ajusta a data se inválida, mas sem mostrar o toast
+            let weekday = Calendar.current.component(.weekday, from: selectedDate)
+            if !allowedWeekdays.contains(weekday),
+               let nextValid = nextValidDate(from: selectedDate) {
+                selectedDate = nextValid
+            }
+
+            didAppearOnce = true
+        }
+        .onChange(of: selectedDate) { newValue in
+            let weekday = Calendar.current.component(.weekday, from: newValue)
+            if !allowedWeekdays.contains(weekday),
+               let nextValid = nextValidDate(from: newValue) {
+                selectedDate = nextValid
+
+                // Mostra o toast apenas após a primeira aparição
+                if didAppearOnce {
+                    showToast = true
+                }
+            }
+        }
     }
 
     var selectedDateFormatted: String {
@@ -149,14 +184,42 @@ struct DateDropDown: View {
         formatter.dateStyle = .medium
         return formatter.string(from: selectedDate)
     }
+
+    var validDateRange: ClosedRange<Date> {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let future = calendar.date(byAdding: .month, value: 2, to: today) ?? today
+
+        let validDates = stride(from: today, through: future, by: 86400).compactMap { date -> Date? in
+            let weekday = calendar.component(.weekday, from: date)
+            return allowedWeekdays.contains(weekday) ? date : nil
+        }
+
+        guard let first = validDates.first, let last = validDates.last else {
+            return today...today
+        }
+
+        return first...last
+    }
+
+    func nextValidDate(from start: Date) -> Date? {
+        let calendar = Calendar.current
+        return stride(from: start, through: start.addingTimeInterval(86400 * 60), by: 86400).first { date in
+            allowedWeekdays.contains(calendar.component(.weekday, from: date))
+        }
+    }
 }
+
 
 // MARK: - Time Dropdown
 
 struct TimeDropDown: View {
     @Binding var selectedTime: Date
     @State private var isExpanded = false
+    @State private var showToast = false
     var placeholder: String = "Selecione o horário"
+    var openingHour: Int = 9
+    var closingHour: Int = 20
 
     var body: some View {
         VStack {
@@ -195,16 +258,41 @@ struct TimeDropDown: View {
             }
 
             if isExpanded {
-                DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
-                    .datePickerStyle(.wheel)
-                    .labelsHidden()
-                    .padding()
-                    .tint(Color(AppColor.brand))
-                    .background(Color.white)
-                    .cornerRadius(8)
+                DatePicker("", selection: Binding(get: {
+                    selectedTime
+                }, set: { newTime in
+                    let calendar = Calendar.current
+                    let today = calendar.startOfDay(for: Date())
+                    let open = calendar.date(bySettingHour: openingHour, minute: 0, second: 0, of: today) ?? Date()
+                    let close = calendar.date(bySettingHour: closingHour, minute: 0, second: 0, of: today) ?? Date()
+
+                    if newTime >= open && newTime <= close {
+                        selectedTime = newTime
+                    } else {
+                        showToast = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            showToast = false
+                        }
+                    }
+                }), displayedComponents: .hourAndMinute)
+                .datePickerStyle(.wheel)
+                .labelsHidden()
+                .padding()
+                .tint(Color(AppColor.brand))
+                .background(Color.white)
+                .cornerRadius(8)
             }
         }
         .padding(.horizontal, 16)
+        .overlay(
+            VStack {
+                if showToast {
+                    ToastView(message: "Horário fora do funcionamento")
+                        .padding(.top, -40)
+                }
+                Spacer()
+            }, alignment: .top
+        )
     }
 
     var selectedTimeFormatted: String {
@@ -213,6 +301,7 @@ struct TimeDropDown: View {
         return formatter.string(from: selectedTime)
     }
 }
+
 
 // MARK: - Previews
 //
@@ -238,3 +327,20 @@ struct TimeDropDown: View {
 //    )
 //    .preferredColorScheme(.dark)
 //}
+
+struct ToastView: View {
+    let message: String
+
+    var body: some View {
+        Text(message)
+            .font(.custom("Inter-Regular", size: 14))
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+            .background(Color.black.opacity(0.8))
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .transition(.opacity)
+            .zIndex(999)
+    }
+}
+

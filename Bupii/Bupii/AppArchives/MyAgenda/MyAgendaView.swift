@@ -15,167 +15,63 @@ struct MyAgendaView: View {
 
     var body: some View {
         ZStack {
-            Color(AppColor.grayBackground)
-                .ignoresSafeArea()
+            Color(AppColor.grayBackground).ignoresSafeArea()
 
             ScrollView(showsIndicators: false) {
                 ZStack {
-                    BackgroundSecondaryView(title: "Minha agenda", onBackButtonTap: {
-                        print("")
-                    })
+                    BackgroundSecondaryView(title: "Minha agenda", onBackButtonTap: {})
 
                     VStack {
                         Text("Meus agendamentos:")
-                            .foregroundStyle(Color(AppColor.text))
                             .font(.custom("Inter-Bold", size: 16))
+                            .foregroundStyle(Color(AppColor.text))
                             .padding(.top, 141)
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
 
                         if appointments.isEmpty {
                             Text("Nenhum agendamento encontrado.")
-                                .foregroundStyle(.gray)
                                 .font(.custom("Inter-Regular", size: 16))
+                                .foregroundStyle(.gray)
                                 .padding(.top, 24)
-                                .frame(maxWidth: .infinity, alignment: .center)
                         } else {
-                            ForEach(appointments, id: \.id) { appointment in
-                                VStack(alignment: .leading, spacing: 0) {
-                                    Button {
-                                        print("Editar tapped")
-                                    } label: {
-                                        HStack(spacing: 4) {
-                                            Spacer()
-                                            Text("Editar")
-                                                .font(.custom("Inter-Regular", size: 16))
-                                                .foregroundStyle(AppColor.brand)
-                                            Image("EditIcon")
-                                                .renderingMode(.template)
-                                                .frame(width: 16, height: 16)
-                                                .foregroundStyle(AppColor.brand)
-                                                .frame(width: 26)
-                                        }
-                                        .padding(.horizontal, 16)
-                                    }
-                                    .buttonStyle(.plain)
-
-                                    Rectangle()
-                                        .foregroundColor(Color(AppColor.brand))
-                                        .frame(height: 1)
-                                        .frame(width: 52)
-                                        .frame(maxWidth: .infinity, alignment: .trailing)
-                                        .padding(.trailing, 36)
-
-                                    Text(appointment.services.joined(separator: ", "))
-                                        .foregroundStyle(Color(AppColor.text))
-                                        .font(.custom("Inter-Bold", size: 18))
-                                        .padding(.top, 24)
-                                        .padding(.leading, 16)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                                    HStack(spacing: 4) {
-                                        Image("LocationColor")
-                                            .renderingMode(.template)
-                                            .frame(width: 24, height: 24)
-                                            .foregroundStyle(AppColor.brand)
-                                            .frame(width: 26)
-
-                                        Text(appointment.location)
-                                            .font(.custom("Inter-Bold", size: 16))
-                                            .foregroundStyle(AppColor.text)
-                                    }
-                                    .padding(.horizontal, 16)
-                                    .padding(.top, 24)
-
-                                    Text(appointment.address)
-                                        .foregroundStyle(Color(AppColor.text))
-                                        .font(.custom("Inter-Regular", size: 16))
-                                        .padding(.leading, 48)
-                                        .padding(.trailing, 16)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-
-                                    HStack(spacing: 4) {
-                                        Image("Calendar")
-                                            .renderingMode(.template)
-                                            .frame(width: 24, height: 24)
-                                            .foregroundStyle(AppColor.brand)
-                                            .frame(width: 26)
-
-                                        Text("Data:")
-                                            .font(.custom("Inter-Bold", size: 16))
-                                            .foregroundStyle(AppColor.text)
-
-                                        Text(appointment.date)
-                                            .font(.custom("Inter-Regular", size: 16))
-                                            .foregroundStyle(AppColor.text)
-                                    }
-                                    .padding(.top, 24)
-                                    .padding(.horizontal, 16)
-
-                                    HStack(spacing: 4) {
-                                        Image("Clock")
-                                            .renderingMode(.template)
-                                            .frame(width: 24, height: 24)
-                                            .foregroundStyle(AppColor.brand)
-                                            .frame(width: 26)
-
-                                        Text("Horário:")
-                                            .font(.custom("Inter-Bold", size: 16))
-                                            .foregroundStyle(AppColor.text)
-
-                                        Text(appointment.time)
-                                            .font(.custom("Inter-Regular", size: 16))
-                                            .foregroundStyle(AppColor.text)
-                                    }
-                                    .padding(.top, 24)
-                                    .padding(.horizontal, 16)
-
-                                    HStack(spacing: 4) {
-                                        Image("Person")
-                                            .renderingMode(.template)
-                                            .frame(width: 24, height: 24)
-                                            .foregroundStyle(AppColor.brand)
-                                            .frame(width: 26)
-
-                                        Text("Profissional:")
-                                            .font(.custom("Inter-Bold", size: 16))
-                                            .foregroundStyle(AppColor.text)
-
-                                        Text(appointment.professional)
-                                            .font(.custom("Inter-Regular", size: 16))
-                                            .foregroundStyle(AppColor.text)
-                                    }
-                                    .padding(.top, 24)
-                                    .padding(.horizontal, 16)
-
-                                    SecondaryButtonRed(buttonText: "Cancelar agendamento") {
-                                        if let id = appointment.id {
-                                            deleteAppointment(id: id)
+                            ScrollViewReader { proxy in
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHStack(spacing: 16) {
+                                        ForEach(sortedAppointments(), id: \.id) { appointment in
+                                            AppointmentCard(appointment: appointment) {
+                                                if let id = appointment.id {
+                                                    deleteAppointment(id: id)
+                                                }
+                                            }
+                                            .frame(width: UIScreen.main.bounds.width - 32)
+                                            .id(appointment.id)
                                         }
                                     }
-                                    .padding(.top, 24)
+                                    .padding(.horizontal, 16)
                                 }
-                                .padding(.vertical, 24)
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(Color.white)
-                                        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 1)
-                                )
-                                .padding(.horizontal, 16)
                                 .padding(.top, 19)
+                                .onAppear {
+                                    if let closest = appointmentClosestToNow(),
+                                       let id = closest.id {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                            withAnimation {
+                                                proxy.scrollTo(id, anchor: .center)
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
 
                         Text("Produtos vendidos nessa unidade:")
-                            .foregroundStyle(Color(AppColor.text))
                             .font(.custom("Inter-Bold", size: 16))
+                            .foregroundStyle(Color(AppColor.text))
                             .padding(.top, 24)
                             .padding(.leading, 16)
                             .frame(maxWidth: .infinity, alignment: .leading)
 
                         ProductGridView()
-
                         Spacer().frame(height: 160)
                     }
                     .ignoresSafeArea()
@@ -183,9 +79,7 @@ struct MyAgendaView: View {
             }
             .ignoresSafeArea()
         }
-        .onAppear {
-            fetchAppointments()
-        }
+        .onAppear { fetchAppointments() }
     }
 
     func fetchAppointments() {
@@ -193,26 +87,143 @@ struct MyAgendaView: View {
 
         Firestore.firestore().collection("appointments")
             .whereField("userId", isEqualTo: userId)
-            .getDocuments { snapshot, error in
-                if let documents = snapshot?.documents {
-                    appointments = documents.compactMap { doc in
-                        try? doc.data(as: Appointment.self)
-                    }
+            .getDocuments { snapshot, _ in
+                let newAppointments = snapshot?.documents.compactMap { doc -> Appointment? in
+                    var appointment = try? doc.data(as: Appointment.self)
+                    appointment?.id = doc.documentID
+                    return appointment
+                } ?? []
+
+                DispatchQueue.main.async {
+                    appointments = newAppointments
                 }
             }
     }
 
     func deleteAppointment(id: String) {
+        if let index = appointments.firstIndex(where: { $0.id == id }) {
+            appointments.remove(at: index)
+        }
+
         Firestore.firestore().collection("appointments").document(id).delete { error in
             if let error = error {
-                print("Erro ao deletar agendamento: \(error.localizedDescription)")
-            } else {
+                print("Eror to delete appointment: \(error.localizedDescription)")
                 fetchAppointments()
             }
         }
     }
+
+    func sortedAppointments() -> [Appointment] {
+        appointments.sorted {
+            guard let date1 = combinedDate(from: $0),
+                  let date2 = combinedDate(from: $1) else { return false }
+            return date1 < date2
+        }
+    }
+
+    func appointmentClosestToNow() -> Appointment? {
+        let now = Date()
+        return sortedAppointments().min(by: {
+            guard let date1 = combinedDate(from: $0),
+                  let date2 = combinedDate(from: $1) else { return false }
+            return abs(date1.timeIntervalSince(now)) < abs(date2.timeIntervalSince(now))
+        })
+    }
+
+    func combinedDate(from appointment: Appointment) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy HH:mm"
+        return formatter.date(from: "\(appointment.date) \(appointment.time)")
+    }
 }
 
+struct AppointmentCard: View {
+    let appointment: Appointment
+    let onDelete: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Button(action: { print("Editar tapped") }) {
+                HStack(spacing: 4) {
+                    Spacer()
+                    Text("Editar")
+                        .font(.custom("Inter-Regular", size: 16))
+                        .foregroundStyle(AppColor.brand)
+                    Image("EditIcon")
+                        .renderingMode(.template)
+                        .frame(width: 16, height: 16)
+                        .foregroundStyle(AppColor.brand)
+                        .frame(width: 26)
+                }
+                .padding(.horizontal, 16)
+            }
+            .buttonStyle(.plain)
+
+            Rectangle()
+                .fill(Color(AppColor.brand))
+                .frame(height: 1)
+                .frame(width: 52)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.trailing, 36)
+
+            Group {
+                Text(appointment.services.joined(separator: ", "))
+                    .font(.custom("Inter-Bold", size: 18))
+                    .foregroundStyle(Color(AppColor.text))
+                    .padding(.top, 24)
+                    .padding(.leading, 16)
+
+                iconRow("LocationColor", appointment.location)
+                    .padding(.top, 24)
+                    .padding(.horizontal, 16)
+
+                Text(appointment.address)
+                    .font(.custom("Inter-Regular", size: 16))
+                    .foregroundStyle(Color(AppColor.text))
+                    .padding(.leading, 48)
+                    .padding(.trailing, 16)
+
+                iconRow("Calendar", "Data: \(appointment.date)")
+                    .padding(.top, 24)
+                    .padding(.horizontal, 16)
+
+                iconRow("Clock", "Horário: \(appointment.time)")
+                    .padding(.top, 24)
+                    .padding(.horizontal, 16)
+
+                iconRow("Person", "Profissional: \(appointment.professional)")
+                    .padding(.top, 24)
+                    .padding(.horizontal, 16)
+            }
+
+            SecondaryButtonRed(buttonText: "Cancelar agendamento", action: onDelete)
+                .padding(.top, 24)
+        }
+        .padding(.vertical, 24)
+        .background(
+            RoundedRectangle(cornerRadius: 8)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 1)
+        )
+        .padding(.horizontal, 0)
+    }
+
+    @ViewBuilder
+    private func iconRow(_ iconName: String, _ text: String) -> some View {
+        HStack(spacing: 4) {
+            Image(iconName)
+                .renderingMode(.template)
+                .frame(width: 24, height: 24)
+                .foregroundStyle(AppColor.brand)
+                .frame(width: 26)
+
+            Text(text)
+                .font(.custom("Inter-Regular", size: 16))
+                .foregroundStyle(Color(AppColor.text))
+        }
+    }
+}
 #Preview {
     MyAgendaView()
 }
+
