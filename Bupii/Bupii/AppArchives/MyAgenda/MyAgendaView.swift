@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct MyAgendaView: View {
-    @State private var appointments: [Appointment] = []
+    @State var appointments: [Appointment] = []
 
     var body: some View {
         ZStack {
@@ -22,57 +22,7 @@ struct MyAgendaView: View {
                     BackgroundSecondaryView(title: "Minha agenda", onBackButtonTap: {})
 
                     VStack {
-                        Text("Meus agendamentos:")
-                            .font(.custom("Inter-Bold", size: 16))
-                            .foregroundStyle(Color(AppColor.text))
-                            .padding(.top, 141)
-                            .padding(.leading, 16)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-
-                        if appointments.isEmpty {
-                            Text("Nenhum agendamento encontrado.")
-                                .font(.custom("Inter-Regular", size: 16))
-                                .foregroundStyle(.gray)
-                                .padding(.top, 24)
-                        } else {
-                            ScrollViewReader { proxy in
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    LazyHStack(spacing: 16) {
-                                        ForEach(sortedAppointments(), id: \.id) { appointment in
-                                            AppointmentCard(appointment: appointment) {
-                                                if let id = appointment.id {
-                                                    deleteAppointment(id: id)
-                                                }
-                                            }
-                                            .frame(width: UIScreen.main.bounds.width - 32)
-                                            .id(appointment.id)
-                                        }
-                                    }
-                                    .padding(.horizontal, 16)
-                                }
-                                .padding(.top, 19)
-                                .onAppear {
-                                    if let closest = appointmentClosestToNow(),
-                                       let id = closest.id {
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                            withAnimation {
-                                                proxy.scrollTo(id, anchor: .center)
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        Text("Produtos vendidos nessa unidade:")
-                            .font(.custom("Inter-Bold", size: 16))
-                            .foregroundStyle(Color(AppColor.text))
-                            .padding(.top, 24)
-                            .padding(.leading, 16)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-
-                        ProductGridView()
-                        Spacer().frame(height: 160)
+                        MyAgendaItem()
                     }
                     .ignoresSafeArea()
                 }
@@ -82,6 +32,8 @@ struct MyAgendaView: View {
         .onAppear { fetchAppointments() }
     }
 
+    //MARK: -
+    //to do: move to viewModel
     func fetchAppointments() {
         guard let userId = Auth.auth().currentUser?.uid else { return }
 
@@ -135,6 +87,7 @@ struct MyAgendaView: View {
         formatter.dateFormat = "dd/MM/yyyy HH:mm"
         return formatter.date(from: "\(appointment.date) \(appointment.time)")
     }
+    //MARK: -
 }
 
 struct AppointmentCard: View {
@@ -207,7 +160,8 @@ struct AppointmentCard: View {
         )
         .padding(.horizontal, 0)
     }
-
+    
+    //move to utils archive
     @ViewBuilder
     private func iconRow(_ iconName: String, _ text: String) -> some View {
         HStack(spacing: 4) {

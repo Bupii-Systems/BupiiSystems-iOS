@@ -30,6 +30,29 @@ struct SecondaryButton: View {
     }
 }
 
+struct SecondaryButtonTransparent: View {
+    var buttonText: String
+    var action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Text(buttonText)
+                .foregroundColor(Color.white)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .font(.custom("Inter", size: 16))
+                .fontWeight(.bold)
+        }
+        .frame(height: 56)
+        .background(Color.clear) 
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.white, lineWidth: 2)
+        )
+        .cornerRadius(8)
+        .padding(.horizontal, 16)
+    }
+}
+
 struct SecondaryButtonRed: View {
     var buttonText: String
     var action: () -> Void

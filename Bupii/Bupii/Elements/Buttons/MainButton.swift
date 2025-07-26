@@ -28,6 +28,26 @@ struct MainButton: View {
     }
 }
 
+struct MainButtonWhite: View {
+    var buttonText: String
+    var action: () -> Void
+    
+    var body: some View {
+        VStack {
+            Button(action: action) {
+                Text(buttonText)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .foregroundColor(.brand)
+                    .font(.custom("Inter-Bold", size: 16))
+            }
+            .frame(height: 56)
+            .background(Color.white)
+            .cornerRadius(8)
+            .padding(.horizontal, 16)
+        }
+    }
+}
+
 #Preview {
     MainButton(buttonText: "Clique aqui", action: {
         print("Botão pressionado!")

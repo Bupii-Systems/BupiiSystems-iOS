@@ -54,3 +54,4 @@ struct ProductGridView: View {
     ProductGridView()
         .preferredColorScheme(.dark)
 }
+
