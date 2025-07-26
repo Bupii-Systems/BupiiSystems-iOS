@@ -55,6 +55,11 @@
 		8530D2C32E34D01E00D1E678 /* TalsecRuntime.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8530D2C12E34CFF000D1E678 /* TalsecRuntime.xcframework */; };
 		8530D2C42E34D01E00D1E678 /* TalsecRuntime.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8530D2C12E34CFF000D1E678 /* TalsecRuntime.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8530D2C92E34D0A600D1E678 /* TalsecConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2C82E34D0A600D1E678 /* TalsecConfig.swift */; };
+		8530D2DC2E3585C700D1E678 /* ProfileAndSettingsUIKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2DB2E3585C700D1E678 /* ProfileAndSettingsUIKitWrapper.swift */; };
+		8530D2DE2E35862400D1E678 /* ColorFunctionUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2DD2E35862400D1E678 /* ColorFunctionUIKit.swift */; };
+		8530D2E12E35888200D1E678 /* ProfileAndSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2E02E35888200D1E678 /* ProfileAndSettingsViewController.swift */; };
+		8530D2E32E3588C500D1E678 /* ProfileAndSettingsUIKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2E22E3588C500D1E678 /* ProfileAndSettingsUIKitView.swift */; };
+		8530D2E52E3588FA00D1E678 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2E42E3588FA00D1E678 /* ProfileModel.swift */; };
 		853E297F2DC7723B0061D820 /* MyAgendaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E297E2DC7723B0061D820 /* MyAgendaView.swift */; };
 		853E29822DC93EEA0061D820 /* ProductsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29812DC93EEA0061D820 /* ProductsCellView.swift */; };
 		853E29842DC95A060061D820 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29832DC95A060061D820 /* ProductGridView.swift */; };
@@ -145,6 +150,11 @@
 		8530D2BF2E3441F100D1E678 /* MyAgendaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgendaItem.swift; sourceTree = "<group>"; };
 		8530D2C12E34CFF000D1E678 /* TalsecRuntime.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:PBDDS45LQS:Lynx SFT s.r.o."; lastKnownFileType = wrapper.xcframework; path = TalsecRuntime.xcframework; sourceTree = "<group>"; };
 		8530D2C82E34D0A600D1E678 /* TalsecConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalsecConfig.swift; sourceTree = "<group>"; };
+		8530D2DB2E3585C700D1E678 /* ProfileAndSettingsUIKitWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAndSettingsUIKitWrapper.swift; sourceTree = "<group>"; };
+		8530D2DD2E35862400D1E678 /* ColorFunctionUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFunctionUIKit.swift; sourceTree = "<group>"; };
+		8530D2E02E35888200D1E678 /* ProfileAndSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAndSettingsViewController.swift; sourceTree = "<group>"; };
+		8530D2E22E3588C500D1E678 /* ProfileAndSettingsUIKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAndSettingsUIKitView.swift; sourceTree = "<group>"; };
+		8530D2E42E3588FA00D1E678 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		853E297E2DC7723B0061D820 /* MyAgendaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgendaView.swift; sourceTree = "<group>"; };
 		853E29812DC93EEA0061D820 /* ProductsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCellView.swift; sourceTree = "<group>"; };
 		853E29832DC95A060061D820 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
@@ -372,6 +382,7 @@
 		852AE31B2DBBD17C00E8E238 /* GlobalFunctions */ = {
 			isa = PBXGroup;
 			children = (
+				8530D2DA2E35856100D1E678 /* UIKitGlobalFunctions */,
 				850584FD2DC663DB00B08CBF /* FirebaseFunctions */,
 				852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */,
 				852AE3212DBCD03500E8E238 /* TrucanteString.swift */,
@@ -459,6 +470,24 @@
 			path = Talsec;
 			sourceTree = "<group>";
 		};
+		8530D2DA2E35856100D1E678 /* UIKitGlobalFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				8530D2DB2E3585C700D1E678 /* ProfileAndSettingsUIKitWrapper.swift */,
+				8530D2DD2E35862400D1E678 /* ColorFunctionUIKit.swift */,
+			);
+			path = UIKitGlobalFunctions;
+			sourceTree = "<group>";
+		};
+		8530D2DF2E35885400D1E678 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8530D2E02E35888200D1E678 /* ProfileAndSettingsViewController.swift */,
+				8530D2E22E3588C500D1E678 /* ProfileAndSettingsUIKitView.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		853E297D2DC772240061D820 /* MyAgenda */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,7 +516,9 @@
 		853E299F2DCD35DF0061D820 /* ProfileAndSettings */ = {
 			isa = PBXGroup;
 			children = (
+				8530D2DF2E35885400D1E678 /* UIKit */,
 				853E29A02DCD35F60061D820 /* ProfileAndSettingsView.swift */,
+				8530D2E42E3588FA00D1E678 /* ProfileModel.swift */,
 			);
 			path = ProfileAndSettings;
 			sourceTree = "<group>";
@@ -667,12 +698,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8530D2E52E3588FA00D1E678 /* ProfileModel.swift in Sources */,
 				851713752DB986F300022829 /* SecondaryButton.swift in Sources */,
 				852AE3222DBCD03500E8E238 /* TrucanteString.swift in Sources */,
 				853E29842DC95A060061D820 /* ProductGridView.swift in Sources */,
 				852AE3172DBB9CFC00E8E238 /* GenericDropDown.swift in Sources */,
 				851713382DB8189300022829 /* FirstView.swift in Sources */,
 				850585252DC67C8700B08CBF /* AppDelegate.swift in Sources */,
+				8530D2E32E3588C500D1E678 /* ProfileAndSettingsUIKitView.swift in Sources */,
 				850584FF2DC663EF00B08CBF /* FirebaseFunctions.swift in Sources */,
 				852AE32D2DBCD70300E8E238 /* BackgroundSecondaryView.swift in Sources */,
 				852AE3132DBAD57B00E8E238 /* TabBarView.swift in Sources */,
@@ -687,6 +720,7 @@
 				8530D2C02E3441F100D1E678 /* MyAgendaItem.swift in Sources */,
 				853E29822DC93EEA0061D820 /* ProductsCellView.swift in Sources */,
 				852AE31F2DBCCB2400E8E238 /* CellHomeEndUserView.swift in Sources */,
+				8530D2E12E35888200D1E678 /* ProfileAndSettingsViewController.swift in Sources */,
 				8530D2BE2E343E5E00D1E678 /* HomeViewModel.swift in Sources */,
 				850584A52DC52D6400B08CBF /* StatefulPreviewWrapper.swift in Sources */,
 				852AE3332DBEB13600E8E238 /* ForgotPasswordView.swift in Sources */,
@@ -694,6 +728,7 @@
 				853E29862DC95B3A0061D820 /* AppointmentModel.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
+				8530D2DC2E3585C700D1E678 /* ProfileAndSettingsUIKitWrapper.swift in Sources */,
 				852AE3312DBCE36E00E8E238 /* LoginView.swift in Sources */,
 				852AE3292DBCD69C00E8E238 /* BackgroundLoginView.swift in Sources */,
 				852AE35D2DC4E39B00E8E238 /* BookingModel.swift in Sources */,
@@ -702,6 +737,7 @@
 				852AE3352DBEB17600E8E238 /* SignUpView.swift in Sources */,
 				852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */,
 				852AE3152DBB93B900E8E238 /* GenericTextField.swift in Sources */,
+				8530D2DE2E35862400D1E678 /* ColorFunctionUIKit.swift in Sources */,
 				853E297F2DC7723B0061D820 /* MyAgendaView.swift in Sources */,
 				852AE33B2DC17AD700E8E238 /* BookingView.swift in Sources */,
 				850584A92DC531AC00B08CBF /* AlertOneButtonView.swift in Sources */,

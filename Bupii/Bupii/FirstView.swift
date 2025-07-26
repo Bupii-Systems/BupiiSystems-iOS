@@ -35,7 +35,8 @@ struct ContentView: View {
                 .tag(2)
                 .tabItem { EmptyView() }
             
-            ProfileAndSettingsView()
+            ProfileAndSettingsUIKitWrapper(model: ProfileModel(name: "Pedro Santos", year: "2024", attendance: "18 vezes", email: "pedroso@gmail.com", plan: "Premium", registrationType: "Cliente"))
+                .ignoresSafeArea()
                 .tag(3)
                 .tabItem { EmptyView() }
             
