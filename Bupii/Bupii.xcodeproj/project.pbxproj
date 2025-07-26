@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -52,6 +52,9 @@
 		852AE35D2DC4E39B00E8E238 /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852AE35C2DC4E39B00E8E238 /* BookingModel.swift */; };
 		8530D2BE2E343E5E00D1E678 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2BD2E343E5E00D1E678 /* HomeViewModel.swift */; };
 		8530D2C02E3441F100D1E678 /* MyAgendaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2BF2E3441F100D1E678 /* MyAgendaItem.swift */; };
+		8530D2C32E34D01E00D1E678 /* TalsecRuntime.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8530D2C12E34CFF000D1E678 /* TalsecRuntime.xcframework */; };
+		8530D2C42E34D01E00D1E678 /* TalsecRuntime.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8530D2C12E34CFF000D1E678 /* TalsecRuntime.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8530D2C92E34D0A600D1E678 /* TalsecConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2C82E34D0A600D1E678 /* TalsecConfig.swift */; };
 		853E297F2DC7723B0061D820 /* MyAgendaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E297E2DC7723B0061D820 /* MyAgendaView.swift */; };
 		853E29822DC93EEA0061D820 /* ProductsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29812DC93EEA0061D820 /* ProductsCellView.swift */; };
 		853E29842DC95A060061D820 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29832DC95A060061D820 /* ProductGridView.swift */; };
@@ -82,6 +85,20 @@
 			remoteInfo = Bupii;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8530D2C52E34D01E00D1E678 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8530D2C42E34D01E00D1E678 /* TalsecRuntime.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		850584A42DC52D6400B08CBF /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
@@ -126,6 +143,8 @@
 		852AE35C2DC4E39B00E8E238 /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
 		8530D2BD2E343E5E00D1E678 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8530D2BF2E3441F100D1E678 /* MyAgendaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgendaItem.swift; sourceTree = "<group>"; };
+		8530D2C12E34CFF000D1E678 /* TalsecRuntime.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:PBDDS45LQS:Lynx SFT s.r.o."; lastKnownFileType = wrapper.xcframework; path = TalsecRuntime.xcframework; sourceTree = "<group>"; };
+		8530D2C82E34D0A600D1E678 /* TalsecConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalsecConfig.swift; sourceTree = "<group>"; };
 		853E297E2DC7723B0061D820 /* MyAgendaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgendaView.swift; sourceTree = "<group>"; };
 		853E29812DC93EEA0061D820 /* ProductsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCellView.swift; sourceTree = "<group>"; };
 		853E29832DC95A060061D820 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
@@ -147,6 +166,7 @@
 				850585172DC66AC600B08CBF /* FirebaseCrashlytics in Frameworks */,
 				850585232DC67BE700B08CBF /* GoogleSignInSwift in Frameworks */,
 				850585152DC66AC600B08CBF /* FirebaseAuth in Frameworks */,
+				8530D2C32E34D01E00D1E678 /* TalsecRuntime.xcframework in Frameworks */,
 				850585192DC66AC600B08CBF /* FirebaseFirestore in Frameworks */,
 				850585132DC66AC600B08CBF /* FirebaseAppDistribution-Beta in Frameworks */,
 				8505851B2DC66AC600B08CBF /* FirebaseStorage in Frameworks */,
@@ -191,8 +211,9 @@
 		851713292DB8189300022829 = {
 			isa = PBXGroup;
 			children = (
-				853E29B82DD1203D0061D820 /* MockVideo */,
 				851713342DB8189300022829 /* Bupii */,
+				8530D2C62E34D05500D1E678 /* AppSecurity */,
+				853E29B82DD1203D0061D820 /* MockVideos */,
 				851713452DB8189400022829 /* BupiiTests */,
 				8517134F2DB8189400022829 /* BupiiUITests */,
 				851713332DB8189300022829 /* Products */,
@@ -421,6 +442,23 @@
 			path = Booking;
 			sourceTree = "<group>";
 		};
+		8530D2C62E34D05500D1E678 /* AppSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				8530D2C72E34D08D00D1E678 /* Talsec */,
+			);
+			path = AppSecurity;
+			sourceTree = "<group>";
+		};
+		8530D2C72E34D08D00D1E678 /* Talsec */ = {
+			isa = PBXGroup;
+			children = (
+				8530D2C12E34CFF000D1E678 /* TalsecRuntime.xcframework */,
+				8530D2C82E34D0A600D1E678 /* TalsecConfig.swift */,
+			);
+			path = Talsec;
+			sourceTree = "<group>";
+		};
 		853E297D2DC772240061D820 /* MyAgenda */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,12 +500,12 @@
 			path = TeamView;
 			sourceTree = "<group>";
 		};
-		853E29B82DD1203D0061D820 /* MockVideo */ = {
+		853E29B82DD1203D0061D820 /* MockVideos */ = {
 			isa = PBXGroup;
 			children = (
 				853E29BB2DD123FC0061D820 /* barber.mp4 */,
 			);
-			path = MockVideo;
+			path = MockVideos;
 			sourceTree = "<group>";
 		};
 		853E29D02DD930740061D820 /* Subscriptions */ = {
@@ -488,6 +526,7 @@
 				8517132E2DB8189300022829 /* Sources */,
 				8517132F2DB8189300022829 /* Frameworks */,
 				851713302DB8189300022829 /* Resources */,
+				8530D2C52E34D01E00D1E678 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -651,6 +690,7 @@
 				8530D2BE2E343E5E00D1E678 /* HomeViewModel.swift in Sources */,
 				850584A52DC52D6400B08CBF /* StatefulPreviewWrapper.swift in Sources */,
 				852AE3332DBEB13600E8E238 /* ForgotPasswordView.swift in Sources */,
+				8530D2C92E34D0A600D1E678 /* TalsecConfig.swift in Sources */,
 				853E29862DC95B3A0061D820 /* AppointmentModel.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
