@@ -2,7 +2,7 @@
 //  ProfileAndSettingsViewController.swift
 //  Bupii
 //
-//  Created by Pedro Ribeiro on 26/07/2025.
+//  Created by Pedro Ribeiro on 26/06/2025.
 //
 
 import UIKit
@@ -10,11 +10,12 @@ import FirebaseAuth
 
 class ProfileAndSettingsViewController: UIViewController {
     
-    private let profileView = ProfileAndSettingsUIKitView()
+    private let profileView: ProfileAndSettingsViewInterface
     private let viewModel: ProfileAndSettingsViewModel
 
-    init(model: ProfileModel) {
+    init(model: ProfileModel, profileView: ProfileAndSettingsViewInterface = ProfileAndSettingsUIKitView()) {
         self.viewModel = ProfileAndSettingsViewModel(model: model)
+        self.profileView = profileView
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -31,7 +32,7 @@ class ProfileAndSettingsViewController: UIViewController {
             plan: viewModel.plan,
             registrationType: viewModel.registrationType
         )
-        view = profileView
+        view = profileView as? UIView
     }
 
     override func viewDidLoad() {

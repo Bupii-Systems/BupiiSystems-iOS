@@ -10,13 +10,16 @@ import FirebaseAuth
 
 final class HomeViewModel: ObservableObject {
     @Published var userName: String = ""
-    @Published var establishmentName: String = "BarbeariaRockeFeller" 
+    @Published var establishmentName: String = "BarbeariaRockeFeller"
 
-    init() {
+    private let displayName: String?
+
+    init(displayName: String? = Auth.auth().currentUser?.displayName) {
+        self.displayName = displayName
         fetchUserName()
     }
 
     private func fetchUserName() {
-        userName = Auth.auth().currentUser?.displayName ?? "Visitante"
+        userName = displayName ?? "Visitante"
     }
 }

@@ -61,6 +61,9 @@
 		8530D2E32E3588C500D1E678 /* ProfileAndSettingsUIKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2E22E3588C500D1E678 /* ProfileAndSettingsUIKitView.swift */; };
 		8530D2E52E3588FA00D1E678 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2E42E3588FA00D1E678 /* ProfileModel.swift */; };
 		8530D2E72E363E2700D1E678 /* ProfileAndSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D2E62E363E2700D1E678 /* ProfileAndSettingsViewModel.swift */; };
+		8530D3432E3681FD00D1E678 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D3422E3681FD00D1E678 /* HomeViewModelTests.swift */; };
+		8530D3452E36865B00D1E678 /* MyAgendaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D3442E36865B00D1E678 /* MyAgendaViewModel.swift */; };
+		8530D3482E36888A00D1E678 /* MyAgendaViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8530D3472E36888A00D1E678 /* MyAgendaViewModelTests.swift */; };
 		853E297F2DC7723B0061D820 /* MyAgendaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E297E2DC7723B0061D820 /* MyAgendaView.swift */; };
 		853E29822DC93EEA0061D820 /* ProductsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29812DC93EEA0061D820 /* ProductsCellView.swift */; };
 		853E29842DC95A060061D820 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29832DC95A060061D820 /* ProductGridView.swift */; };
@@ -73,6 +76,8 @@
 		853E29D22DD9309D0061D820 /* SubscriptionsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29D12DD9309C0061D820 /* SubscriptionsCardView.swift */; };
 		853E29D52DDA63C00061D820 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 853E29D42DDA63C00061D820 /* CalendarKit */; };
 		853E29D72DDA63E50061D820 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29D62DDA63E50061D820 /* CalendarView.swift */; };
+		85658EE82E36D0E90050CC81 /* TeamMemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85658EE72E36D0E90050CC81 /* TeamMemberModel.swift */; };
+		85658EEA2E36D1E90050CC81 /* MyAgendaUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85658EE92E36D1E90050CC81 /* MyAgendaUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +162,9 @@
 		8530D2E22E3588C500D1E678 /* ProfileAndSettingsUIKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAndSettingsUIKitView.swift; sourceTree = "<group>"; };
 		8530D2E42E3588FA00D1E678 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		8530D2E62E363E2700D1E678 /* ProfileAndSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAndSettingsViewModel.swift; sourceTree = "<group>"; };
+		8530D3422E3681FD00D1E678 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		8530D3442E36865B00D1E678 /* MyAgendaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgendaViewModel.swift; sourceTree = "<group>"; };
+		8530D3472E36888A00D1E678 /* MyAgendaViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgendaViewModelTests.swift; sourceTree = "<group>"; };
 		853E297E2DC7723B0061D820 /* MyAgendaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgendaView.swift; sourceTree = "<group>"; };
 		853E29812DC93EEA0061D820 /* ProductsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCellView.swift; sourceTree = "<group>"; };
 		853E29832DC95A060061D820 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
@@ -167,6 +175,8 @@
 		853E29BB2DD123FC0061D820 /* barber.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = barber.mp4; sourceTree = "<group>"; };
 		853E29D12DD9309C0061D820 /* SubscriptionsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsCardView.swift; sourceTree = "<group>"; };
 		853E29D62DDA63E50061D820 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		85658EE72E36D0E90050CC81 /* TeamMemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberModel.swift; sourceTree = "<group>"; };
+		85658EE92E36D1E90050CC81 /* MyAgendaUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgendaUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,9 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				851713342DB8189300022829 /* Bupii */,
-				8530D2C62E34D05500D1E678 /* AppSecurity */,
 				853E29B82DD1203D0061D820 /* MockVideos */,
-				851713452DB8189400022829 /* BupiiTests */,
 				8517134F2DB8189400022829 /* BupiiUITests */,
 				851713332DB8189300022829 /* Products */,
 				853E29892DC95E9B0061D820 /* Frameworks */,
@@ -246,6 +254,8 @@
 		851713342DB8189300022829 /* Bupii */ = {
 			isa = PBXGroup;
 			children = (
+				8530D2C62E34D05500D1E678 /* AppSecurity */,
+				851713452DB8189400022829 /* BupiiTests */,
 				8505851C2DC6722100B08CBF /* AppEntryView */,
 				852AE32E2DBCE33B00E8E238 /* AppArchives */,
 				852AE3232DBCD2DF00E8E238 /* BackgroundView */,
@@ -276,6 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				851713462DB8189400022829 /* BupiiTests.swift */,
+				8530D3422E3681FD00D1E678 /* HomeViewModelTests.swift */,
+				8530D3472E36888A00D1E678 /* MyAgendaViewModelTests.swift */,
 			);
 			path = BupiiTests;
 			sourceTree = "<group>";
@@ -384,6 +396,7 @@
 		852AE31B2DBBD17C00E8E238 /* GlobalFunctions */ = {
 			isa = PBXGroup;
 			children = (
+				853E29872DC95CDB0061D820 /* FormattedFunctions.swift */,
 				8530D2DA2E35856100D1E678 /* UIKitGlobalFunctions */,
 				850584FD2DC663DB00B08CBF /* FirebaseFunctions */,
 				852AE31C2DBBD1A400E8E238 /* RoundedCorner.swift */,
@@ -450,7 +463,6 @@
 				852AE33A2DC17AD700E8E238 /* BookingView.swift */,
 				852AE35C2DC4E39B00E8E238 /* BookingModel.swift */,
 				853E29852DC95B3A0061D820 /* AppointmentModel.swift */,
-				853E29872DC95CDB0061D820 /* FormattedFunctions.swift */,
 			);
 			path = Booking;
 			sourceTree = "<group>";
@@ -495,6 +507,8 @@
 			children = (
 				853E297E2DC7723B0061D820 /* MyAgendaView.swift */,
 				8530D2BF2E3441F100D1E678 /* MyAgendaItem.swift */,
+				8530D3442E36865B00D1E678 /* MyAgendaViewModel.swift */,
+				85658EE92E36D1E90050CC81 /* MyAgendaUtils.swift */,
 			);
 			path = MyAgenda;
 			sourceTree = "<group>";
@@ -530,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				853E29B62DCF5EE40061D820 /* TeamView.swift */,
+				85658EE72E36D0E90050CC81 /* TeamMemberModel.swift */,
 			);
 			path = TeamView;
 			sourceTree = "<group>";
@@ -701,6 +716,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85658EE82E36D0E90050CC81 /* TeamMemberModel.swift in Sources */,
 				8530D2E52E3588FA00D1E678 /* ProfileModel.swift in Sources */,
 				851713752DB986F300022829 /* SecondaryButton.swift in Sources */,
 				852AE3222DBCD03500E8E238 /* TrucanteString.swift in Sources */,
@@ -728,6 +744,7 @@
 				850584A52DC52D6400B08CBF /* StatefulPreviewWrapper.swift in Sources */,
 				852AE3332DBEB13600E8E238 /* ForgotPasswordView.swift in Sources */,
 				8530D2C92E34D0A600D1E678 /* TalsecConfig.swift in Sources */,
+				85658EEA2E36D1E90050CC81 /* MyAgendaUtils.swift in Sources */,
 				853E29862DC95B3A0061D820 /* AppointmentModel.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
@@ -736,6 +753,7 @@
 				852AE3292DBCD69C00E8E238 /* BackgroundLoginView.swift in Sources */,
 				852AE35D2DC4E39B00E8E238 /* BookingModel.swift in Sources */,
 				852AE3382DBEB7FB00E8E238 /* HomeView.swift in Sources */,
+				8530D3452E36865B00D1E678 /* MyAgendaViewModel.swift in Sources */,
 				851713732DB986D600022829 /* MainButton.swift in Sources */,
 				852AE3352DBEB17600E8E238 /* SignUpView.swift in Sources */,
 				852AE31D2DBBD1A400E8E238 /* RoundedCorner.swift in Sources */,
@@ -755,6 +773,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				851713472DB8189400022829 /* BupiiTests.swift in Sources */,
+				8530D3482E36888A00D1E678 /* MyAgendaViewModelTests.swift in Sources */,
+				8530D3432E3681FD00D1E678 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

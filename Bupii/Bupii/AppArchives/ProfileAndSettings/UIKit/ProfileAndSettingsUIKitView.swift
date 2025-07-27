@@ -2,14 +2,29 @@
 //  ProfileAndSettingsView.swift
 //  Bupii
 //
-//  Created by Pedro Ribeiro on 26/07/2025.
+//  Created by Pedro Ribeiro on 26/06/2025.
 //
 
 import UIKit
 import SwiftUI
 import FirebaseAuth
 
-class ProfileAndSettingsUIKitView: UIView {
+// MARK: - Protocol
+
+protocol ProfileAndSettingsViewInterface: AnyObject {
+    var onLogout: (() -> Void)? { get set }
+    
+    func configure(
+        name: String?,
+        year: String?,
+        attendance: String?,
+        email: String?,
+        plan: String?,
+        registrationType: String?
+    )
+}
+
+class ProfileAndSettingsUIKitView: UIView, ProfileAndSettingsViewInterface {
     
     //MARK: - Variables
     var onLogout: (() -> Void)?
@@ -223,18 +238,6 @@ class ProfileAndSettingsUIKitView: UIView {
         userEmailLabel.text = email
         userPlanTypeLabel.text = plan
         userRegisterTypeLabel.text = registrationType
-    }
-    
-    //MARK: - Sugestion (less code)
-
-    private func makeLabel(text: String, font: UIFont, color: UIColor, alignment: NSTextAlignment = .center) -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = text
-        label.font = font
-        label.textColor = color
-        label.textAlignment = alignment
-        return label
     }
     
     private func setupLayout() {
