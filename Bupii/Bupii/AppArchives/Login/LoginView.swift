@@ -60,7 +60,7 @@ struct LoginView: View {
                             
                             MainButton(buttonText: "Entrar", action: {
                                 guard !email.isEmpty, !password.isEmpty else {
-                                    print("Preencha e-mail e senha.")
+                                    print("Write the email and password fields.")
                                     return
                                 }
                                 
@@ -108,10 +108,10 @@ struct LoginView: View {
                                             signInWithGoogle(presenting: rootVC) { result in
                                                 switch result {
                                                 case .success(let user):
-                                                    print("Login com Google realizado: \(user.email ?? "")")
+                                                    print("Google login with email: \(user.email ?? "")")
                                                     goToHome = true
                                                 case .failure(let error):
-                                                    print("Erro no login com Google: \(error.localizedDescription)")
+                                                    print("Error Google login: \(error.localizedDescription)")
                                                 }
                                             }
                                         }

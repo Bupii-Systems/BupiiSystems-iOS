@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import SwiftUI
+import FirebaseAuth
 
 class ProfileAndSettingsUIKitView: UIView {
+    
+    //MARK: - Variables
+    var onLogout: (() -> Void)?
     
     // MARK: - Subviews
     
@@ -181,6 +186,7 @@ class ProfileAndSettingsUIKitView: UIView {
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.brand.cgColor
+        button.addTarget(self, action: #selector(tappedLogout), for: .touchUpInside)
         return button
     }()
     
@@ -199,13 +205,36 @@ class ProfileAndSettingsUIKitView: UIView {
     
     // MARK: - Layout
     
-    func configure(with model: ProfileModel) {
-        nameLabel.text = model.name
-        yearLabel.text = model.year
-        numberOfAttendancesLabel.text = model.attendance
-        userEmailLabel.text = model.email
-        userPlanTypeLabel.text = model.plan
-        userRegisterTypeLabel.text = model.registrationType
+    @objc func tappedLogout() {
+        onLogout?()
+    }
+    
+    func configure(
+        name: String?,
+        year: String?,
+        attendance: String?,
+        email: String?,
+        plan: String?,
+        registrationType: String?
+    ) {
+        nameLabel.text = name
+        yearLabel.text = year
+        numberOfAttendancesLabel.text = attendance
+        userEmailLabel.text = email
+        userPlanTypeLabel.text = plan
+        userRegisterTypeLabel.text = registrationType
+    }
+    
+    //MARK: - Sugestion (less code)
+
+    private func makeLabel(text: String, font: UIFont, color: UIColor, alignment: NSTextAlignment = .center) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = text
+        label.font = font
+        label.textColor = color
+        label.textAlignment = alignment
+        return label
     }
     
     private func setupLayout() {
@@ -284,7 +313,6 @@ class ProfileAndSettingsUIKitView: UIView {
             
             userEmailLabel.topAnchor.constraint(equalTo: emailTitleLabel.bottomAnchor, constant: 8),
             userEmailLabel.leadingAnchor.constraint(equalTo: secondaryRectangle.leadingAnchor, constant: 18),
-            //            footerTitleLabel.bottomAnchor.constraint(equalTo: internalContentView.bottomAnchor, constant: -32),
             
             planTypeLabel.topAnchor.constraint(equalTo: userEmailLabel.bottomAnchor,constant: 24),
             planTypeLabel.leadingAnchor.constraint(equalTo: userEmailLabel.leadingAnchor),
@@ -313,14 +341,4 @@ class ProfileAndSettingsUIKitView: UIView {
     }
 }
 
-//MARK: - Sugestion (less code)
 
-//private func makeLabel(text: String, font: UIFont, color: UIColor, alignment: NSTextAlignment = .center) -> UILabel {
-//    let label = UILabel()
-//    label.translatesAutoresizingMaskIntoConstraints = false
-//    label.text = text
-//    label.font = font
-//    label.textColor = color
-//    label.textAlignment = alignment
-//    return label
-//}
