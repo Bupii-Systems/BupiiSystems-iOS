@@ -77,22 +77,7 @@ struct LoginView: View {
                             .padding(.top, 24)
                             
                             VStack(spacing: 0) {
-                                VStack(spacing: 2) {
-                                    Button(action: {
-                                        print("Entrar sem cadastro tapped")
-                                    }) {
-                                        Text("Entrar sem cadastro")
-                                            .foregroundStyle(Color(AppColor.brand))
-                                            .font(.custom("Inter-Regular", size: 16))
-                                            .frame(maxWidth: .infinity, alignment: .center)
-                                    }
-                                    
-                                    Rectangle()
-                                        .foregroundColor(Color(AppColor.brand))
-                                        .frame(height: 1)
-                                        .frame(width: 146)
-                                }
-                                .padding(.top, 24)
+                                // Botão "Entrar sem cadastro" e seu retângulo foram removidos aqui
                                 
                                 Text("Entrar utilizando:")
                                     .foregroundStyle(Color(AppColor.text))

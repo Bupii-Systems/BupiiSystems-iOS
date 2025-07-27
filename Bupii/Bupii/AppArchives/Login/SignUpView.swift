@@ -11,6 +11,7 @@ struct SignUpView: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    @State private var showSuccessAlert: Bool = false
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
@@ -58,6 +59,7 @@ struct SignUpView: View {
                         switch result {
                         case .success(let user):
                             print("Sign up successfull: \(user.email ?? "")")
+                            showSuccessAlert = true
                         case .failure(let error):
                             print("Error sign up: \(error.localizedDescription)")
                         }
@@ -72,6 +74,18 @@ struct SignUpView: View {
             .ignoresSafeArea()
         }
         .navigationBarBackButtonHidden(true)
+        .overlay(
+            showSuccessAlert ?
+                AlertOneButtonView(
+                    message: "Conta criada com sucesso!\nVocê já pode fazer login.",
+                    buttonText: "Voltar para o login",
+                    onButtonTap: {
+                        showSuccessAlert = false
+                        dismiss()
+                    }
+                )
+            : nil
+        )
     }
 }
 
