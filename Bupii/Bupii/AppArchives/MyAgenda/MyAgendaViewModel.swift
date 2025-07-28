@@ -53,7 +53,7 @@ final class MyAgendaViewModel: ObservableObject {
     func deleteAppointment(id: String) {
         Firestore.firestore().collection("appointments").document(id).delete { error in
             if let error = error {
-                print("Erro ao deletar: \(error.localizedDescription)")
+                print("Error to delete: \(error.localizedDescription)")
             } else {
                 self.appointments.removeAll { $0.id == id }
             }

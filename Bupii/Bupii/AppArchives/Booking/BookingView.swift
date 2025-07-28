@@ -207,7 +207,7 @@ struct BookingView: View {
                                 saveAppointment(appointment: appointment) { result in
                                     switch result {
                                     case .success(): showConfirmationAlert = true
-                                    case .failure(let error): print("Erro ao salvar: \(error.localizedDescription)")
+                                    case .failure(let error): print("Error to save: \(error.localizedDescription)")
                                     }
                                 }
                             }

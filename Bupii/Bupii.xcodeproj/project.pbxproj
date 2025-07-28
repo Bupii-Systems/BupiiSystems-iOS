@@ -77,7 +77,6 @@
 		853E29D52DDA63C00061D820 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 853E29D42DDA63C00061D820 /* CalendarKit */; };
 		853E29D72DDA63E50061D820 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853E29D62DDA63E50061D820 /* CalendarView.swift */; };
 		85658EE82E36D0E90050CC81 /* TeamMemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85658EE72E36D0E90050CC81 /* TeamMemberModel.swift */; };
-		85658EEA2E36D1E90050CC81 /* MyAgendaUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85658EE92E36D1E90050CC81 /* MyAgendaUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,7 +175,6 @@
 		853E29D12DD9309C0061D820 /* SubscriptionsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsCardView.swift; sourceTree = "<group>"; };
 		853E29D62DDA63E50061D820 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		85658EE72E36D0E90050CC81 /* TeamMemberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberModel.swift; sourceTree = "<group>"; };
-		85658EE92E36D1E90050CC81 /* MyAgendaUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAgendaUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -508,7 +506,6 @@
 				853E297E2DC7723B0061D820 /* MyAgendaView.swift */,
 				8530D2BF2E3441F100D1E678 /* MyAgendaItem.swift */,
 				8530D3442E36865B00D1E678 /* MyAgendaViewModel.swift */,
-				85658EE92E36D1E90050CC81 /* MyAgendaUtils.swift */,
 			);
 			path = MyAgenda;
 			sourceTree = "<group>";
@@ -744,7 +741,6 @@
 				850584A52DC52D6400B08CBF /* StatefulPreviewWrapper.swift in Sources */,
 				852AE3332DBEB13600E8E238 /* ForgotPasswordView.swift in Sources */,
 				8530D2C92E34D0A600D1E678 /* TalsecConfig.swift in Sources */,
-				85658EEA2E36D1E90050CC81 /* MyAgendaUtils.swift in Sources */,
 				853E29862DC95B3A0061D820 /* AppointmentModel.swift in Sources */,
 				851713662DB81D7600022829 /* AppColor.swift in Sources */,
 				851713362DB8189300022829 /* BupiiApp.swift in Sources */,
