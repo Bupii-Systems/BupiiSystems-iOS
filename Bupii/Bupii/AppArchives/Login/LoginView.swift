@@ -77,7 +77,6 @@ struct LoginView: View {
                             .padding(.top, 24)
                             
                             VStack(spacing: 0) {
-                                // Botão "Entrar sem cadastro" e seu retângulo foram removidos aqui
                                 
                                 Text("Entrar utilizando:")
                                     .foregroundStyle(Color(AppColor.text))
