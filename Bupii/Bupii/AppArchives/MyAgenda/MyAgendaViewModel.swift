@@ -32,7 +32,7 @@ final class MyAgendaViewModel: ObservableObject {
                         }
                     }
                 } else {
-                    print("Erro ao ouvir agendamentos: \(error?.localizedDescription ?? "Desconhecido")")
+                    print("Error to get data: \(error?.localizedDescription ?? "Unknow")")
                 }
             }
     }
