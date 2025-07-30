@@ -99,7 +99,7 @@ struct TeamView: View {
         TeamMemberModel(
             name: "Vinicius Alpes",
             role: "Barbeiro",
-            description: "Especialista em visagismo, platinados e aqui uma descrição detalhada sobre o que o profissional faz e faz e faz.",
+            description: "Especialista em visagismo, platinados.",
             imageName: "Person1"
         ),
         TeamMemberModel(
@@ -109,13 +109,13 @@ struct TeamView: View {
             imageName: "Person2"
         ),
         TeamMemberModel(
-            name: "João Silva",
+            name: "Maria Oliveira",
             role: "Designer",
             description: "Focado em design de sobrancelhas e barba.",
             imageName: "Person3"
         ),
         TeamMemberModel(
-            name: "Maria Oliveira",
+            name: "João Silva",
             role: "Colorista",
             description: "Especialista em coloração e tratamento capilar.",
             imageName: "Person4"
